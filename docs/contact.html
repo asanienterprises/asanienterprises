@@ -1,78 +1,151 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
   <title>Contact | Asani Enterprises</title>
-  <meta name="description" content="Contact Asani Enterprises for business consulting." />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Contact Asani Enterprises for business consulting.">
+
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect x="6" y="6" width="52" height="52" fill="white" stroke="%230A0A0A" stroke-width="2"/>
+      <path d="M18 44V20h16" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
+      <path d="M18 32h20" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
+      <path d="M46 44V20" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
+      <path d="M40 44V20h10" fill="none" stroke="%23B08D3B" stroke-width="3" stroke-linecap="square"/>
+      <path d="M20 50h24" fill="none" stroke="%23B08D3B" stroke-width="2" stroke-linecap="square"/>
+    </svg>'>
+
+  <style>
+    :root{ --white:#fff; --black:#0a0a0a; --gray:#5f5f5f; --gray2:#7a7a7a; --line:#e6e6e6; --gold:#b08d3b; --container:1180px; --serif:Georgia,"Times New Roman",serif; --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--sans);color:var(--black);background:var(--white)}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--container),calc(100% - 48px));margin:0 auto}
+    header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:18px}
+    .brandWrap{display:flex;align-items:center;gap:12px;min-width:240px}
+    .logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center}
+    .brandText{line-height:1.05}
+    .brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
+    .brandText .tag{margin-top:5px;font-size:12px;color:var(--gray)}
+    .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--gray);white-space:nowrap}
+    .nav-links a:hover{color:var(--black)}
+    .nav-links a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:6px}
+    .nav-cta{display:flex;gap:10px;align-items:center}
+    .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer}
+    .btnGold{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(176,141,59,.15)}
+    .btn:hover{background:#fafafa}
+
+    .page{padding:44px 0 10px}
+    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:10px}
+    .kicker .rule{width:42px;height:2px;background:var(--gold)}
+    h1{font-family:var(--serif);font-weight:600;font-size:40px;letter-spacing:-.02em;margin:14px 0 12px}
+    .lead{color:var(--gray);line-height:1.8;font-size:15.5px;max-width:85ch;margin:0}
+
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    .grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+
+    .panel{border:1px solid var(--line);padding:22px;background:#fff}
+    label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .field{display:flex;flex-direction:column;gap:8px}
+    input,textarea{border:1px solid var(--line);padding:12px;font-size:14px;outline:none}
+    input:focus,textarea:focus{border-color:rgba(176,141,59,.55)}
+    textarea{min-height:140px;resize:vertical}
+    .fine{margin-top:10px;color:var(--gray2);line-height:1.7;font-size:13px}
+
+    footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
+    .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
+    .fine2{color:var(--gray2);margin-top:10px;line-height:1.7}
+
+    @media(max-width:980px){
+      .nav-links{display:none}
+      .grid2,.row,.footerGrid{grid-template-columns:1fr}
+    }
+  </style>
 </head>
+
 <body>
-  <div class="top">
-    <div class="container topin">
-      <a class="brand" href="index.html">
-        <div class="logoMark" aria-hidden="true"></div>
-        <div class="brandText"><strong>Asani Enterprises</strong><span>Business Consulting</span></div>
-      </a>
-      <nav class="nav">
-        <a data-page="index.html" href="index.html">Home</a>
-        <a data-page="services.html" href="services.html">Services</a>
-        <a data-page="case-studies.html" href="case-studies.html">Case Studies</a>
-        <a data-page="about.html" href="about.html">About</a>
-        <a data-page="insights.html" href="insights.html">Insights</a>
-        <a data-page="contact.html" href="contact.html">Contact</a>
-      </nav>
-      <div class="ctaRow">
-        <a class="btn btnGhost" href="tel:17324708233">Call</a>
-        <a class="btn btnGold" href="#form">Request a consult</a>
+<header>
+  <div class="container nav">
+    <a class="brandWrap" href="index.html">
+      <div class="logoBox" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="52" height="52" fill="white" stroke="#0A0A0A" stroke-width="2"/>
+          <path d="M18 44V20h16" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
+          <path d="M18 32h20" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
+          <path d="M46 44V20" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
+          <path d="M40 44V20h10" fill="none" stroke="#B08D3B" stroke-width="3" stroke-linecap="square"/>
+          <path d="M20 50h24" fill="none" stroke="#B08D3B" stroke-width="2" stroke-linecap="square"/>
+        </svg>
       </div>
+      <div class="brandText"><div class="name">Asani Enterprises</div><div class="tag">Business Consulting</div></div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+      <a href="insights.html">Insights</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn" href="tel:17324708233">Call</a>
+      <a class="btn btnGold" href="#form">Request a consult</a>
     </div>
   </div>
+</header>
 
-  <div class="container pageHeader">
-    <h1>Contact</h1>
-    <p>Send a request and we’ll respond promptly. This form opens your email client (free hosting friendly).</p>
+<main class="container">
+  <div class="page">
+    <div class="kicker"><span class="rule"></span> Contact</div>
+    <h1>Request a consult.</h1>
+    <p class="lead">Share your objective and timeline. This form opens your email client for sending (works on free hosting).</p>
   </div>
 
-  <section class="section" id="form">
-    <div class="container contactGrid">
-      <div class="form">
+  <section id="form">
+    <div class="grid2">
+      <div class="panel">
         <form id="mailform">
-          <div class="formRow">
+          <div class="row">
             <div class="field">
               <label for="name">Name</label>
-              <input id="name" required placeholder="Your name" autocomplete="name" />
+              <input id="name" required placeholder="Your name">
             </div>
             <div class="field">
               <label for="org">Organization</label>
-              <input id="org" placeholder="Company" autocomplete="organization" />
+              <input id="org" placeholder="Company">
             </div>
           </div>
 
-          <div class="formRow">
+          <div class="row">
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+              <input id="email" type="email" required placeholder="you@example.com">
             </div>
             <div class="field">
               <label for="phone">Phone</label>
-              <input id="phone" placeholder="Optional" autocomplete="tel" />
+              <input id="phone" placeholder="Optional">
             </div>
           </div>
 
-          <div class="field">
+          <div class="field" style="margin-top:12px;">
             <label for="topic">Topic</label>
-            <input id="topic" required placeholder="Strategy, operations, execution, negotiation" />
+            <input id="topic" required placeholder="Strategy, operations, execution, transactions">
           </div>
 
-          <div class="field">
+          <div class="field" style="margin-top:12px;">
             <label for="msg">Message</label>
             <textarea id="msg" required placeholder="Timeline, constraints, and what success looks like"></textarea>
           </div>
 
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
             <button class="btn btnGold" type="submit">Send request</button>
-            <a class="btn btnGhost" href="tel:17324708233">Call 732-470-8233</a>
+            <a class="btn" href="tel:17324708233">Call 732-470-8233</a>
             <a class="btn" href="mailto:info@asanienterprises.com">Email</a>
           </div>
 
@@ -80,39 +153,68 @@
         </form>
       </div>
 
-      <div class="infoBox">
-        <h3>Direct contact</h3>
-        <p>
-          <strong>Address</strong><br/>
-          1001 S Main St #8227<br/>
-          Kalispell, MT 59901<br/><br/>
-          <strong>Phone</strong><br/>
-          <a href="tel:17324708233">732-470-8233</a><br/><br/>
-          <strong>Email</strong><br/>
-          <a href="mailto:info@asanienterprises.com">info@asanienterprises.com</a><br/><br/>
-          <strong>Website</strong><br/>
-          <a href="https://www.asanienterprises.com">www.asanienterprises.com</a>
-        </p>
+      <div class="panel">
+        <label>Direct contact</label>
+        <div style="margin-top:14px;color:var(--gray);line-height:1.8;font-size:14.5px;">
+          <b style="color:var(--black);">Address</b><br>
+          1001 S Main St #8227<br>
+          Kalispell, MT 59901<br><br>
+
+          <b style="color:var(--black);">Phone</b><br>
+          <a href="tel:17324708233" style="border-bottom:2px solid var(--gold);padding-bottom:4px;">732-470-8233</a><br><br>
+
+          <b style="color:var(--black);">Email</b><br>
+          <a href="mailto:info@asanienterprises.com" style="border-bottom:2px solid var(--gold);padding-bottom:4px;">info@asanienterprises.com</a><br><br>
+
+          <b style="color:var(--black);">Website</b><br>
+          <span style="border-bottom:2px solid var(--gold);padding-bottom:4px;">www.asanienterprises.com</span>
+        </div>
+
+        <div class="fine" style="margin-top:16px;">
+          We respond promptly and confirm scope, timeline, and decision points during the initial consult.
+        </div>
       </div>
     </div>
   </section>
+</main>
 
-  <footer class="footer">
-    <div class="container footGrid">
-      <div>
-        <div class="brand">
-          <div class="logoMark" aria-hidden="true"></div>
-          <div class="brandText"><strong>Asani Enterprises</strong><span>Business Consulting</span></div>
-        </div>
-        <div style="margin-top:10px; color:var(--muted2);">© <span data-year></span> Asani Enterprises.</div>
-      </div>
-      <div style="text-align:right; color:var(--muted); line-height:1.75;">
-        <a href="tel:17324708233">732-470-8233</a><br/>
-        <a href="mailto:info@asanienterprises.com">info@asanienterprises.com</a>
-      </div>
+<footer>
+  <div class="container footerGrid">
+    <div>
+      © <span id="year"></span> Asani Enterprises — Business Consulting
+      <div class="fine2">Strategy and execution support for organizations that value clarity, discipline, and measurable progress.</div>
     </div>
-  </footer>
+    <div>
+      1001 S Main St #8227<br>Kalispell, MT 59901<br><br>
+      732-470-8233<br>info@asanienterprises.com
+    </div>
+  </div>
+</footer>
 
-  <script src="assets/app.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById("mailform").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const org  = document.getElementById("org").value.trim() || "NA";
+    const email= document.getElementById("email").value.trim();
+    const phone= document.getElementById("phone").value.trim() || "NA";
+    const topic= document.getElementById("topic").value.trim();
+    const msg  = document.getElementById("msg").value.trim();
+
+    const subject = encodeURIComponent("Consulting inquiry: " + topic);
+    const body = encodeURIComponent(
+      "Name: " + name + "\n" +
+      "Organization: " + org + "\n" +
+      "Email: " + email + "\n" +
+      "Phone: " + phone + "\n\n" +
+      "Topic: " + topic + "\n\n" +
+      "Message:\n" + msg + "\n\n" +
+      "Sent via www.asanienterprises.com"
+    );
+
+    window.location.href = "mailto:info@asanienterprises.com?subject=" + subject + "&body=" + body;
+  });
+</script>
 </body>
 </html>
