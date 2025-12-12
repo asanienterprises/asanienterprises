@@ -1,110 +1,155 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Insights | Asani Enterprises</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Insights on strategy, operations, and execution from Asani Enterprises.">
+<meta charset="utf-8">
+<title>Insights | Asani Enterprises</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="icon" type="image/svg+xml"
-    href='data:image/svg+xml;utf8,
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-      <rect x="6" y="6" width="52" height="52" fill="white" stroke="%230A0A0A" stroke-width="2"/>
-      <path d="M18 44V20h16" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
-      <path d="M18 32h20" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
-      <path d="M46 44V20" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
-      <path d="M40 44V20h10" fill="none" stroke="%23B08D3B" stroke-width="3" stroke-linecap="square"/>
-      <path d="M20 50h24" fill="none" stroke="%23B08D3B" stroke-width="2" stroke-linecap="square"/>
-    </svg>'>
+<link rel="icon" type="image/svg+xml"
+href='data:image/svg+xml;utf8,
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect x="6" y="6" width="52" height="52" fill="white" stroke="%230A0A0A" stroke-width="2"/>
+<path d="M18 44V20h16" fill="none" stroke="%230A0A0A" stroke-width="3"/>
+<path d="M18 32h20" fill="none" stroke="%230A0A0A" stroke-width="3"/>
+<path d="M40 20v24h10" fill="none" stroke="%23B08D3B" stroke-width="3"/>
+</svg>'>
 
-  <style>
-    :root{ --white:#fff; --black:#0a0a0a; --gray:#5f5f5f; --gray2:#7a7a7a; --line:#e6e6e6; --gold:#b08d3b; --container:1180px; --serif:Georgia,"Times New Roman",serif; --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:var(--sans);color:var(--black);background:var(--white)}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(var(--container),calc(100% - 48px));margin:0 auto}
-    header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:18px}
-    .brandWrap{display:flex;align-items:center;gap:12px;min-width:240px}
-    .logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center}
-    .brandText{line-height:1.05}
-    .brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
-    .brandText .tag{margin-top:5px;font-size:12px;color:var(--gray)}
-    .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--gray);white-space:nowrap}
-    .nav-links a:hover{color:var(--black)}
-    .nav-links a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:6px}
-    .nav-cta{display:flex;gap:10px;align-items:center}
-    .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer}
-    .btnGold{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(176,141,59,.15)}
-    .btn:hover{background:#fafafa}
+<style>
+:root{
+--black:#0a0a0a;--gray:#5f5f5f;--gray2:#7a7a7a;
+--line:#e6e6e6;--gold:#b08d3b;
+--container:1180px;
+--serif:Georgia,"Times New Roman",serif;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:#fff;color:var(--black)}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--container),calc(100% - 32px));margin:auto}
 
-    .page{padding:44px 0 10px}
-    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:10px}
-    .kicker .rule{width:42px;height:2px;background:var(--gold)}
-    h1{font-family:var(--serif);font-weight:600;font-size:40px;letter-spacing:-.02em;margin:14px 0 12px}
-    .lead{color:var(--gray);line-height:1.8;font-size:15.5px;max-width:80ch;margin:0}
+/* HEADER (mobile-friendly) */
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:100}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;padding:8px 0}
+.brandWrap{display:flex;flex-direction:column;gap:4px}
+.brand{font-weight:800;letter-spacing:.14em;font-size:12px;text-transform:uppercase;line-height:1}
+.brandTag{font-size:12px;color:var(--gray);line-height:1}
 
-    section{padding:64px 0;border-top:1px solid var(--line)}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .post{border:1px solid var(--line);padding:22px}
-    .post .meta{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
-    .post h3{margin:10px 0 10px;font-size:18px}
-    .post p{margin:0;color:var(--gray);line-height:1.75;font-size:14.5px}
-    .post a.read{display:inline-block;margin-top:14px;border-bottom:2px solid var(--gold);padding-bottom:6px;color:var(--black)}
+/* Desktop nav */
+.nav-links{display:flex;gap:26px;font-size:14px;color:var(--gray);white-space:nowrap}
+.nav-links a.active{border-bottom:2px solid var(--gold);padding-bottom:6px}
 
-    footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
-    .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
-    .fine{color:var(--gray2);margin-top:10px;line-height:1.7}
+/* Hamburger */
+.menuBtn{
+display:none;width:48px;height:48px;
+border:1px solid var(--line);
+background:#fff;cursor:pointer;
+align-items:center;justify-content:center;flex:0 0 auto;
+}
+.menuBtn:focus{outline:none;border-color:rgba(176,141,59,.6)}
+.menuBtn span{display:block;width:20px;height:2px;background:#000;margin:3px 0}
 
-    @media(max-width:980px){
-      .nav-links{display:none}
-      .grid2,.footerGrid{grid-template-columns:1fr}
-    }
-  </style>
+/* Drawer */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:998}
+.drawer{
+position:fixed;top:0;right:-320px;width:320px;height:100vh;
+background:#fff;border-left:1px solid var(--line);
+transition:.2s;z-index:999;display:flex;flex-direction:column;
+}
+.drawer.open{right:0}
+.overlay.show{display:block}
+.drawerTop{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line)}
+.drawerTop .t{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+.closeBtn{width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.drawerNav a{display:block;padding:16px;border-bottom:1px solid var(--line);color:var(--gray)}
+.drawerNav a.active{color:var(--black);border-bottom:2px solid var(--gold)}
+.drawerFoot{margin-top:auto;padding:16px;border-top:1px solid var(--line);display:flex;gap:10px}
+.btn{border:1px solid var(--black);padding:10px 12px;font-size:13px;background:#fff;cursor:pointer;display:inline-block;text-align:center;flex:1}
+.btnGold{border-color:var(--gold)}
+
+/* Page */
+.page{padding:46px 0}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
+h1{font-family:var(--serif);font-size:40px;font-weight:600;margin:10px 0 12px}
+.lead{max-width:78ch;color:var(--gray);line-height:1.85;font-size:15.5px;margin:0}
+
+/* Posts */
+.section{border-top:1px solid var(--line);padding:56px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.post{border:1px solid var(--line);padding:22px}
+.post .meta{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
+.post h3{margin:10px 0 10px;font-size:18px}
+.post p{margin:0;color:var(--gray);line-height:1.75}
+.read{display:inline-block;margin-top:14px;border-bottom:2px solid var(--gold);padding-bottom:6px;color:var(--black)}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;color:var(--gray);font-size:13px}
+
+/* Mobile */
+@media(max-width:900px){
+.nav-links{display:none}
+.menuBtn{display:flex}
+h1{font-size:32px}
+.grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
+
 <header>
-  <div class="container nav">
-    <a class="brandWrap" href="index.html">
-      <div class="logoBox" aria-hidden="true">
-        <svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <rect x="6" y="6" width="52" height="52" fill="white" stroke="#0A0A0A" stroke-width="2"/>
-          <path d="M18 44V20h16" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
-          <path d="M18 32h20" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
-          <path d="M46 44V20" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
-          <path d="M40 44V20h10" fill="none" stroke="#B08D3B" stroke-width="3" stroke-linecap="square"/>
-          <path d="M20 50h24" fill="none" stroke="#B08D3B" stroke-width="2" stroke-linecap="square"/>
-        </svg>
-      </div>
-      <div class="brandText"><div class="name">Asani Enterprises</div><div class="tag">Business Consulting</div></div>
-    </a>
-
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="about.html">About</a>
-      <a class="active" href="insights.html">Insights</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-    <div class="nav-cta">
-      <a class="btn" href="tel:17324708233">Call</a>
-      <a class="btn btnGold" href="contact.html">Request a consult</a>
-    </div>
+<div class="container nav">
+  <div class="brandWrap">
+    <div class="brand">Asani Enterprises</div>
+    <div class="brandTag">Business Consulting</div>
   </div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a class="active" href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button class="menuBtn" id="openMenu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
 </header>
 
-<main class="container">
-  <div class="page">
-    <div class="kicker"><span class="rule"></span> Insights</div>
-    <h1>Practical principles for leaders.</h1>
-    <p class="lead">Short, disciplined insights on decision quality, execution cadence, and operating control.</p>
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawerTop">
+    <div class="t">Menu</div>
+    <button class="closeBtn" id="closeMenu" aria-label="Close menu">✕</button>
   </div>
 
-  <section>
-    <div class="grid2">
+  <nav class="drawerNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a class="active" href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="drawerFoot">
+    <a class="btn" href="tel:17324708233">Call</a>
+    <a class="btn btnGold" href="contact.html">Consult</a>
+  </div>
+</aside>
+
+<main class="container page">
+  <div class="kicker">Insights</div>
+  <h1>Practical principles for leaders.</h1>
+  <p class="lead">
+    Short, disciplined insights on decision quality, execution cadence, and operational control — built for real implementation.
+  </p>
+
+  <div class="section">
+    <div class="grid">
       <article class="post">
         <div class="meta">Execution</div>
         <h3>Cadence creates control</h3>
@@ -133,22 +178,30 @@
         <a class="read" href="services.html">View transaction support</a>
       </article>
     </div>
-  </section>
+  </div>
 </main>
 
 <footer>
-  <div class="container footerGrid">
-    <div>
-      © <span id="year"></span> Asani Enterprises — Business Consulting
-      <div class="fine">Strategy and execution support for organizations that value clarity, discipline, and measurable progress.</div>
-    </div>
-    <div>
-      1001 S Main St #8227<br>Kalispell, MT 59901<br><br>
-      732-470-8233<br>info@asanienterprises.com
-    </div>
-  </div>
+<div class="container">
+© <span id="y"></span> Asani Enterprises · 1001 S Main St #8227 · Kalispell, MT 59901 · 732-470-8233 · info@asanienterprises.com
+</div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById("y").textContent=new Date().getFullYear();
+const open=document.getElementById("openMenu");
+const close=document.getElementById("closeMenu");
+const drawer=document.getElementById("drawer");
+const overlay=document.getElementById("overlay");
+
+function openNav(){drawer.classList.add("open");overlay.classList.add("show");document.body.style.overflow="hidden";}
+function closeNav(){drawer.classList.remove("open");overlay.classList.remove("show");document.body.style.overflow="";}
+
+open.addEventListener("click", openNav);
+close.addEventListener("click", closeNav);
+overlay.addEventListener("click", closeNav);
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeNav(); });
+</script>
+
 </body>
 </html>
