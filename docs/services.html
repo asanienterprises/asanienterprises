@@ -18,15 +18,21 @@
     </svg>'>
 
   <style>
-    :root{ --white:#fff; --black:#0a0a0a; --gray:#5f5f5f; --gray2:#7a7a7a; --line:#e6e6e6; --gold:#b08d3b; --container:1180px; --serif:Georgia,"Times New Roman",serif; --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+    :root{
+      --white:#ffffff; --black:#0a0a0a; --gray:#5f5f5f; --gray2:#7a7a7a;
+      --line:#e6e6e6; --gold:#b08d3b; --container:1180px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
     *{box-sizing:border-box}
     body{margin:0;font-family:var(--sans);color:var(--black);background:var(--white)}
     a{color:inherit;text-decoration:none}
-    .container{width:min(var(--container),calc(100% - 48px));margin:0 auto}
+    .container{width:min(var(--container), calc(100% - 48px)); margin:0 auto;}
+
     header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:18px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
     .brandWrap{display:flex;align-items:center;gap:12px;min-width:240px}
-    .logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center}
+    .logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;background:#fff}
     .brandText{line-height:1.05}
     .brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
     .brandText .tag{margin-top:5px;font-size:12px;color:var(--gray)}
@@ -34,15 +40,34 @@
     .nav-links a:hover{color:var(--black)}
     .nav-links a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:6px}
     .nav-cta{display:flex;gap:10px;align-items:center}
-    .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer;letter-spacing:.02em}
+    .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer;letter-spacing:.02em;display:inline-block}
     .btnGold{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(176,141,59,.15)}
     .btn:hover{background:#fafafa}
+
+    .menuBtn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+    .menuIcon{width:18px;height:12px;position:relative}
+    .menuIcon span{position:absolute;left:0;right:0;height:2px;background:var(--black)}
+    .menuIcon span:nth-child(1){top:0}
+    .menuIcon span:nth-child(2){top:5px}
+    .menuIcon span:nth-child(3){top:10px}
+    .mobileOverlay{position:fixed;inset:0;background:rgba(10,10,10,.45);display:none;z-index:999}
+    .mobileDrawer{position:fixed;top:0;right:-360px;width:min(360px,90vw);height:100vh;background:#fff;border-left:1px solid var(--line);z-index:1000;transition:right .18s ease;display:flex;flex-direction:column}
+    .mobileDrawer.open{right:0}
+    .mobileOverlay.open{display:block}
+    .drawerTop{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;border-bottom:1px solid var(--line)}
+    .drawerTitle{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+    .drawerClose{width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer}
+    .drawerNav{padding:10px 18px 18px}
+    .drawerNav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:var(--gray);font-size:14px}
+    .drawerNav a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:12px}
+    .drawerActions{margin-top:auto;padding:18px;border-top:1px solid var(--line);display:flex;gap:10px}
+    .drawerActions .btn{flex:1;text-align:center}
 
     .page{padding:44px 0 16px}
     .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:10px}
     .kicker .rule{width:42px;height:2px;background:var(--gold)}
     h1{font-family:var(--serif);font-weight:600;font-size:40px;letter-spacing:-.02em;margin:14px 0 12px}
-    .lead{color:var(--gray);line-height:1.8;font-size:15.5px;max-width:75ch;margin:0}
+    .lead{color:var(--gray);line-height:1.8;font-size:15.5px;max-width:80ch;margin:0}
 
     section{padding:64px 0;border-top:1px solid var(--line)}
     .sectionTitle{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px}
@@ -50,8 +75,8 @@
     .sectionTitle h2{margin:10px 0 0;font-family:var(--serif);font-weight:600;font-size:32px}
     .sectionTitle p{margin:0;color:var(--gray);line-height:1.75;max-width:62ch;font-size:14.5px}
 
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .box{border:1px solid var(--line);padding:22px;background:#fff}
     .box h3{margin:0 0 10px;font-size:16px}
     .box p{margin:0;color:var(--gray);line-height:1.75;font-size:14.5px}
@@ -65,12 +90,6 @@
     .tabPanel{display:none;padding-top:24px}
     .tabPanel.active{display:block}
     .twoCol{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
-    .deliverables{border:1px solid var(--line);padding:22px}
-    .deliverables .mini{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);margin-bottom:10px}
-    .deliverables h3{margin:0 0 10px;font-size:18px}
-    .deliverables p{margin:0;color:var(--gray);line-height:1.75;font-size:14.5px}
-    .deliverables ul{margin:14px 0 0;padding-left:18px;color:var(--gray);line-height:1.75;font-size:14px}
-
     .rail{border:1px solid var(--line);padding:22px}
     .rail h4{margin:0 0 10px;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
     .rail p{margin:0;color:var(--gray);line-height:1.75;font-size:14px}
@@ -82,6 +101,7 @@
 
     @media(max-width:980px){
       .nav-links{display:none}
+      .menuBtn{display:flex}
       .grid2,.grid3,.twoCol,.footerGrid{grid-template-columns:1fr}
     }
   </style>
@@ -104,7 +124,7 @@
       <div class="brandText"><div class="name">Asani Enterprises</div><div class="tag">Business Consulting</div></div>
     </a>
 
-    <nav class="nav-links" aria-label="Primary navigation">
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a class="active" href="services.html">Services</a>
       <a href="case-studies.html">Case Studies</a>
@@ -116,9 +136,33 @@
     <div class="nav-cta">
       <a class="btn" href="tel:17324708233">Call</a>
       <a class="btn btnGold" href="contact.html">Request a consult</a>
+
+      <button class="menuBtn" id="openMenu" aria-label="Open menu" aria-expanded="false">
+        <div class="menuIcon" aria-hidden="true"><span></span><span></span><span></span></div>
+      </button>
     </div>
   </div>
 </header>
+
+<div class="mobileOverlay" id="mobileOverlay" hidden></div>
+<aside class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawerTop">
+    <div class="drawerTitle">Menu</div>
+    <button class="drawerClose" id="closeMenu" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="drawerNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="drawerActions">
+    <a class="btn" href="tel:17324708233">Call</a>
+    <a class="btn btnGold" href="contact.html">Request a consult</a>
+  </div>
+</aside>
 
 <main class="container">
   <div class="page">
@@ -136,7 +180,7 @@
         <div class="label">Practice Areas</div>
         <h2>What we deliver</h2>
       </div>
-      <p>Use the tabs to review each practice area, including typical deliverables and how the work is run.</p>
+      <p>Review each practice area below, including typical deliverables and engagement structure.</p>
     </div>
 
     <div class="tabs">
@@ -149,12 +193,11 @@
 
       <div class="tabPanel active" id="t1">
         <div class="twoCol">
-          <div class="deliverables">
-            <div class="mini">Strategy</div>
-            <h3>Decision-ready clarity for leadership alignment.</h3>
-            <p>We translate complexity into choices, with clear tradeoffs and a plan built for execution.</p>
+          <div class="box">
+            <h3>Strategy</h3>
+            <p>Decision-grade clarity for leadership alignment, built for execution.</p>
             <ul>
-              <li>Strategic options + recommended path</li>
+              <li>Strategic options + recommendation</li>
               <li>Market and competitor intelligence</li>
               <li>Operating plan, KPIs, and governance</li>
               <li>Stakeholder alignment and narrative</li>
@@ -172,13 +215,12 @@
 
       <div class="tabPanel" id="t2">
         <div class="twoCol">
-          <div class="deliverables">
-            <div class="mini">Operations</div>
-            <h3>Performance systems that increase control and speed.</h3>
-            <p>We reduce friction and strengthen execution through process, cadence, and accountability.</p>
+          <div class="box">
+            <h3>Operations</h3>
+            <p>Performance systems that increase control, speed, and quality.</p>
             <ul>
               <li>Process mapping and redesign</li>
-              <li>Operating cadence and reporting system</li>
+              <li>Operating cadence and reporting</li>
               <li>Accountability model and escalation paths</li>
               <li>Efficiency and margin initiatives</li>
             </ul>
@@ -194,10 +236,9 @@
 
       <div class="tabPanel" id="t3">
         <div class="twoCol">
-          <div class="deliverables">
-            <div class="mini">Execution</div>
-            <h3>Weekly cadence that keeps initiatives moving.</h3>
-            <p>We help leadership teams implement and sustain the operating rhythm that drives results.</p>
+          <div class="box">
+            <h3>Execution</h3>
+            <p>Weekly cadence that keeps initiatives moving.</p>
             <ul>
               <li>Initiative roadmap with owners and milestones</li>
               <li>Weekly leadership cadence and reporting</li>
@@ -217,10 +258,9 @@
 
       <div class="tabPanel" id="t4">
         <div class="twoCol">
-          <div class="deliverables">
-            <div class="mini">Transactions</div>
-            <h3>Structured preparation for stronger outcomes.</h3>
-            <p>We support negotiation planning, diligence, and integration with emphasis on risk control.</p>
+          <div class="box">
+            <h3>Transactions</h3>
+            <p>Structured preparation for stronger outcomes.</p>
             <ul>
               <li>Negotiation architecture and positioning</li>
               <li>Diligence support and risk mapping</li>
@@ -236,6 +276,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -249,18 +290,9 @@
     </div>
 
     <div class="grid3">
-      <div class="box">
-        <h3>Clear scope</h3>
-        <p>We define objectives, constraints, and success metrics at the start of each engagement.</p>
-      </div>
-      <div class="box">
-        <h3>Decision-ready outputs</h3>
-        <p>Deliverables are designed for leadership use: options, tradeoffs, owners, and timelines.</p>
-      </div>
-      <div class="box">
-        <h3>Cadence and measurement</h3>
-        <p>Weekly rhythm, reporting, and a decision log ensure progress stays visible and controlled.</p>
-      </div>
+      <div class="box"><h3>Clear scope</h3><p>Objectives, constraints, and success metrics defined upfront.</p></div>
+      <div class="box"><h3>Decision-ready outputs</h3><p>Options, tradeoffs, owners, and timelines built for leadership use.</p></div>
+      <div class="box"><h3>Cadence and measurement</h3><p>Weekly rhythm, reporting, and a decision log to maintain control.</p></div>
     </div>
 
     <div style="margin-top:18px;">
@@ -284,15 +316,52 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  const btns = document.querySelectorAll('.tabNav button');
-  const panels = document.querySelectorAll('.tabPanel');
-  btns.forEach(b=>{
-    b.addEventListener('click', ()=>{
-      const id = b.getAttribute('data-tab');
-      btns.forEach(x=>x.classList.toggle('active', x===b));
-      panels.forEach(p=>p.classList.toggle('active', p.id===id));
+
+  // Mobile menu
+  (function(){
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('mobileOverlay');
+
+    function openMenu(){
+      overlay.hidden = false;
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+      openBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      openBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      setTimeout(()=>{ overlay.hidden = true; }, 180);
+    }
+
+    openBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.drawerNav a').forEach(a=>{
+      a.classList.toggle('active', a.getAttribute('href') === path);
     });
-  });
+  })();
+
+  // Services tabs
+  (function(){
+    const btns = document.querySelectorAll('.tabNav button');
+    const panels = document.querySelectorAll('.tabPanel');
+    btns.forEach(b=>{
+      b.addEventListener('click', ()=>{
+        const id = b.getAttribute('data-tab');
+        btns.forEach(x=>x.classList.toggle('active', x===b));
+        panels.forEach(p=>p.classList.toggle('active', p.id===id));
+      });
+    });
+  })();
 </script>
 </body>
 </html>
