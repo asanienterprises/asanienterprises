@@ -15,7 +15,7 @@ href='data:image/svg+xml;utf8,
 </svg>'>
 
 <style>
-/* ===== CORE ===== */
+/* SAME CSS SYSTEM — ONLY PAGE CONTENT DIFFERS */
 :root{
 --black:#0a0a0a;--gray:#5f5f5f;--gray2:#7a7a7a;
 --line:#e6e6e6;--gold:#b08d3b;
@@ -24,137 +24,125 @@ href='data:image/svg+xml;utf8,
 --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--sans);background:#fff;color:var(--black)}
+body{margin:0;font-family:var(--sans);background:#fff;color:var(--black);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-.container{width:min(var(--container),calc(100% - 32px));margin:auto}
+.container{width:min(var(--container),calc(100% - 48px));margin:auto}
 
-/* ===== HEADER ===== */
-header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:100}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-weight:800;letter-spacing:.14em;font-size:12px;text-transform:uppercase}
-
-/* Desktop nav */
+/* HEADER */
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
+.brandWrap{display:flex;align-items:center;gap:12px}
+.logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center}
+.brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
+.brandText .tag{font-size:12px;color:var(--gray)}
 .nav-links{display:flex;gap:26px;font-size:14px;color:var(--gray)}
 .nav-links a.active{border-bottom:2px solid var(--gold);padding-bottom:6px}
+.nav-cta{display:flex;gap:10px}
+.btn{border:1px solid var(--black);padding:10px 14px;font-size:13px}
+.btnGold{border-color:var(--gold)}
+.menuBtn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;align-items:center;justify-content:center}
 
-/* Hamburger */
-.menuBtn{
-display:none;width:48px;height:48px;
-border:1px solid var(--line);
-background:#fff;cursor:pointer;
-align-items:center;justify-content:center;
-}
-.menuBtn span{
-display:block;width:20px;height:2px;background:#000;margin:3px 0;
-}
+/* DRAWER */
+.mobileOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:999}
+.mobileDrawer{position:fixed;top:0;right:-360px;width:360px;max-width:90vw;height:100vh;background:#fff;border-left:1px solid var(--line);transition:.2s;z-index:1000;display:flex;flex-direction:column}
+.mobileDrawer.open{right:0}
+.mobileOverlay.open{display:block}
+.drawerTop{display:flex;justify-content:space-between;padding:18px;border-bottom:1px solid var(--line)}
+.drawerNav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:var(--gray)}
+.drawerNav a.active{color:var(--black);border-bottom:2px solid var(--gold)}
+.drawerActions{margin-top:auto;padding:18px;border-top:1px solid var(--line);display:flex;gap:10px}
 
-/* Drawer */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:998}
-.drawer{
-position:fixed;top:0;right:-320px;width:320px;height:100vh;
-background:#fff;border-left:1px solid var(--line);
-transition:.2s;z-index:999;
-}
-.drawer.open{right:0}
-.overlay.show{display:block}
-.drawer a{display:block;padding:16px;border-bottom:1px solid var(--line)}
-.drawer a.active{border-bottom:2px solid var(--gold)}
+/* PAGE */
+.page{padding:46px 0}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
+h1{font-family:var(--serif);font-size:40px;margin:10px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.box{border:1px solid var(--line);padding:22px}
+.box h3{margin:0 0 10px}
 
-/* Page */
-.page{padding:48px 0}
-h1{font-family:var(--serif);font-size:40px;font-weight:600}
-p.lead{max-width:70ch;color:var(--gray);line-height:1.8}
-
-/* Grid */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
-.card{border:1px solid var(--line);padding:24px}
-.card h3{margin:0 0 10px}
-
-/* Footer */
-footer{border-top:1px solid var(--line);padding:40px 0;margin-top:60px;color:var(--gray);font-size:13px}
-
-/* Mobile */
-@media(max-width:900px){
+/* MOBILE FIX */
+@media(max-width:980px){
+.nav{display:grid;grid-template-columns:1fr auto}
 .nav-links{display:none}
-.menuBtn{display:flex}
+.nav-cta a{display:none}
+.menuBtn{display:flex;justify-self:end}
 .grid{grid-template-columns:1fr}
-h1{font-size:32px}
 }
 </style>
 </head>
 
 <body>
-
 <header>
 <div class="container nav">
-<div class="brand">Asani Enterprises</div>
+  <a class="brandWrap" href="index.html">
+    <div class="logoBox"></div>
+    <div class="brandText">
+      <div class="name">Asani Enterprises</div>
+      <div class="tag">Business Consulting</div>
+    </div>
+  </a>
 
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a class="active" href="case-studies.html">Case Studies</a>
-<a href="about.html">About</a>
-<a href="insights.html">Insights</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a class="active" href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<button class="menuBtn" id="openMenu">
-<span></span><span></span><span></span>
-</button>
+  <div class="nav-cta">
+    <a class="btn" href="tel:17324708233">Call</a>
+    <a class="btn btnGold" href="contact.html">Consult</a>
+    <button class="menuBtn" id="openMenu">☰</button>
+  </div>
 </div>
 </header>
 
-<div class="overlay" id="overlay"></div>
-<div class="drawer" id="drawer">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a class="active" href="case-studies.html">Case Studies</a>
-<a href="about.html">About</a>
-<a href="insights.html">Insights</a>
-<a href="contact.html">Contact</a>
+<div class="mobileOverlay" id="mobileOverlay"></div>
+<aside class="mobileDrawer" id="mobileDrawer">
+<div class="drawerTop">
+  <strong>Menu</strong>
+  <button id="closeMenu">✕</button>
 </div>
+<nav class="drawerNav">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a class="active" href="case-studies.html">Case Studies</a>
+  <a href="about.html">About</a>
+  <a href="insights.html">Insights</a>
+  <a href="contact.html">Contact</a>
+</nav>
+<div class="drawerActions">
+  <a class="btn" href="tel:17324708233">Call</a>
+  <a class="btn btnGold" href="contact.html">Consult</a>
+</div>
+</aside>
 
 <main class="container page">
-<h1>Case Studies</h1>
-<p class="lead">
-Representative engagement examples demonstrating our approach,
-discipline, and outcomes. All client details are anonymized.
-</p>
+<div class="kicker">Case Studies</div>
+<h1>Representative client engagements</h1>
 
 <div class="grid">
-<div class="card">
-<h3>Operational Transformation</h3>
-<p>Designed leadership cadence and accountability system resulting in faster decisions and clearer ownership.</p>
-</div>
-<div class="card">
-<h3>Strategic Repositioning</h3>
-<p>Clarified strategic priorities, tradeoffs, and execution roadmap for leadership alignment.</p>
-</div>
-<div class="card">
-<h3>Negotiation Architecture</h3>
-<p>Built structured negotiation framework improving downside protection and leverage.</p>
-</div>
-<div class="card">
-<h3>Execution Discipline</h3>
-<p>Implemented weekly execution rhythm sustaining initiative momentum.</p>
-</div>
+  <div class="box">
+    <h3>Operational turnaround</h3>
+    <p>Defined cadence, ownership, and KPIs resulting in restored control and margin improvement.</p>
+  </div>
+  <div class="box">
+    <h3>Strategic repositioning</h3>
+    <p>Clarified market positioning and operating model to support scalable growth.</p>
+  </div>
 </div>
 </main>
 
-<footer>
-<div class="container">
-© <span id="y"></span> Asani Enterprises · Kalispell, MT · 732-470-8233
-</div>
-</footer>
-
 <script>
-document.getElementById("y").textContent=new Date().getFullYear();
 const open=document.getElementById("openMenu");
-const drawer=document.getElementById("drawer");
-const overlay=document.getElementById("overlay");
-open.onclick=()=>{drawer.classList.add("open");overlay.classList.add("show");}
-overlay.onclick=()=>{drawer.classList.remove("open");overlay.classList.remove("show");}
+const close=document.getElementById("closeMenu");
+const drawer=document.getElementById("mobileDrawer");
+const overlay=document.getElementById("mobileOverlay");
+open.onclick=()=>{drawer.classList.add("open");overlay.classList.add("open");};
+close.onclick=()=>{drawer.classList.remove("open");overlay.classList.remove("open");};
+overlay.onclick=close.onclick;
 </script>
-
 </body>
 </html>
