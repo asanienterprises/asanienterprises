@@ -1,122 +1,250 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>About | Asani Enterprises</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <title>About | Asani Enterprises</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="About Asani Enterprises—professional consulting with disciplined execution.">
 
-<style>
-:root{
---black:#0a0a0a;--gray:#5f5f5f;--gray2:#7a7a7a;
---line:#e6e6e6;--gold:#b08d3b;--container:1180px;
---serif:Georgia,"Times New Roman",serif;
---sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--sans);color:var(--black);background:#fff;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-.container{width:min(var(--container),calc(100% - 48px));margin:auto}
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect x="6" y="6" width="52" height="52" fill="white" stroke="%230A0A0A" stroke-width="2"/>
+      <path d="M18 44V20h16" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
+      <path d="M18 32h20" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
+      <path d="M46 44V20" fill="none" stroke="%230A0A0A" stroke-width="3" stroke-linecap="square"/>
+      <path d="M40 44V20h10" fill="none" stroke="%23B08D3B" stroke-width="3" stroke-linecap="square"/>
+      <path d="M20 50h24" fill="none" stroke="%23B08D3B" stroke-width="2" stroke-linecap="square"/>
+    </svg>'>
 
-/* HEADER */
-header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:50}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:14px}
-.brandWrap{display:flex;align-items:center;gap:12px}
-.brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
-.brandText .tag{font-size:12px;color:var(--gray)}
-.nav-links{display:flex;gap:26px;font-size:14px;color:var(--gray)}
-.nav-links a.active{border-bottom:2px solid var(--gold);padding-bottom:6px}
-.nav-cta{display:flex;gap:10px}
-.btn{border:1px solid var(--black);padding:10px 14px;font-size:13px}
-.btnGold{border-color:var(--gold)}
-.menuBtn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff}
+  <style>
+    :root{--white:#fff;--black:#0a0a0a;--gray:#5f5f5f;--gray2:#7a7a7a;--line:#e6e6e6;--gold:#b08d3b;--container:1180px;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--sans);color:var(--black);background:#fff;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--container),calc(100% - 48px));margin:0 auto}
 
-/* DRAWER */
-.mobileOverlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;z-index:999}
-.mobileDrawer{position:fixed;top:0;right:-360px;width:360px;max-width:90vw;height:100vh;background:#fff;border-left:1px solid var(--line);transition:.2s;z-index:1000;display:flex;flex-direction:column}
-.mobileDrawer.open{right:0}
-.mobileOverlay.open{display:block}
-.drawerTop{display:flex;justify-content:space-between;padding:18px;border-bottom:1px solid var(--line)}
-.drawerNav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:var(--gray)}
-.drawerNav a.active{color:var(--black);border-bottom:2px solid var(--gold)}
-.drawerActions{margin-top:auto;padding:18px;border-top:1px solid var(--line);display:flex;gap:10px}
+    header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
+    .brandWrap{display:flex;align-items:center;gap:12px;min-width:0}
+    .logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;background:#fff;flex:0 0 auto}
+    .brandText{line-height:1.05;min-width:0}
+    .brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brandText .tag{margin-top:5px;font-size:12px;color:var(--gray);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--gray);white-space:nowrap}
+    .nav-links a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:6px}
+    .nav-cta{display:flex;gap:10px;align-items:center;flex:0 0 auto}
+    .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer;letter-spacing:.02em;display:inline-block}
+    .btnGold{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(176,141,59,.15)}
+    .btn:hover{background:#fafafa}
 
-/* PAGE */
-.page{padding:46px 0}
-.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
-h1{font-family:var(--serif);font-size:40px;margin:10px 0}
-p{color:var(--gray);line-height:1.8}
+    .menuBtn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+    .menuBtn:focus{outline:none;border-color:rgba(176,141,59,.55)}
+    .menuIcon{width:18px;height:12px;position:relative}
+    .menuIcon span{position:absolute;left:0;right:0;height:2px;background:var(--black)}
+    .menuIcon span:nth-child(1){top:0}
+    .menuIcon span:nth-child(2){top:5px}
+    .menuIcon span:nth-child(3){top:10px}
 
-/* MOBILE */
-@media(max-width:980px){
-.nav{display:grid;grid-template-columns:1fr auto}
-.nav-links{display:none}
-.nav-cta a{display:none}
-.menuBtn{display:flex;justify-self:end}
-}
-</style>
+    .mobileOverlay{position:fixed;inset:0;background:rgba(10,10,10,.45);display:none;z-index:999}
+    .mobileDrawer{position:fixed;top:0;right:-360px;width:min(360px,90vw);height:100vh;background:#fff;border-left:1px solid var(--line);z-index:1000;transition:right .18s ease;display:flex;flex-direction:column}
+    .mobileDrawer.open{right:0}
+    .mobileOverlay.open{display:block}
+    .drawerTop{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;border-bottom:1px solid var(--line)}
+    .drawerTitle{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+    .drawerClose{width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer}
+    .drawerNav{padding:10px 18px 18px}
+    .drawerNav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:var(--gray);font-size:14px}
+    .drawerNav a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:12px}
+    .drawerActions{margin-top:auto;padding:18px;border-top:1px solid var(--line);display:flex;gap:10px}
+    .drawerActions .btn{flex:1;text-align:center}
+
+    .pageHead{padding:46px 0 18px}
+    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);display:flex;align-items:center;gap:10px}
+    .kicker .rule{width:42px;height:2px;background:var(--gold)}
+    h1{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.12;margin:16px 0 10px}
+    .lead{color:var(--gray);font-size:15.5px;line-height:1.9;margin:0;max-width:85ch}
+
+    section{padding:56px 0;border-top:1px solid var(--line)}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{border:1px solid var(--line);padding:22px;background:#fff}
+    .card h3{margin:0 0 10px;font-size:16px}
+    .card p{margin:0;color:var(--gray);line-height:1.8;font-size:14.5px}
+    .card ul{margin:14px 0 0;padding-left:18px;color:var(--gray);line-height:1.8;font-size:14px}
+    .card li{margin:7px 0}
+
+    footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
+    .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
+    .fine{color:var(--gray2);margin-top:10px;line-height:1.7}
+
+    @media(max-width:980px){
+      .nav-links{display:none;}
+      .nav{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:12px 0;}
+      .nav-cta a.btn{display:none;}
+      .menuBtn{display:flex;width:48px;height:48px;justify-self:end;}
+      h1{font-size:32px}
+      .grid2,.footerGrid{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 
 <body>
 <header>
-<div class="container nav">
-  <a class="brandWrap" href="index.html">
-    <div class="brandText">
-      <div class="name">Asani Enterprises</div>
-      <div class="tag">Business Consulting</div>
-    </div>
-  </a>
+  <div class="container nav">
+    <a class="brandWrap" href="index.html" aria-label="Asani Enterprises home">
+      <div class="logoBox" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="52" height="52" fill="white" stroke="#0A0A0A" stroke-width="2"/>
+          <path d="M18 44V20h16" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
+          <path d="M18 32h20" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
+          <path d="M46 44V20" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-linecap="square"/>
+          <path d="M40 44V20h10" fill="none" stroke="#B08D3B" stroke-width="3" stroke-linecap="square"/>
+          <path d="M20 50h24" fill="none" stroke="#B08D3B" stroke-width="2" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div class="brandText">
+        <div class="name">Asani Enterprises</div>
+        <div class="tag">Business Consulting</div>
+      </div>
+    </a>
 
-  <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a class="active" href="about.html">About</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn" href="tel:17324708233">Call</a>
+      <a class="btn btnGold" href="contact.html">Request a consult</a>
+
+      <button class="menuBtn" id="openMenu" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+        <div class="menuIcon" aria-hidden="true"><span></span><span></span><span></span></div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobileOverlay" id="mobileOverlay" hidden></div>
+<aside class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawerTop">
+    <div class="drawerTitle">Menu</div>
+    <button class="drawerClose" id="closeMenu" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="drawerNav" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
-    <a class="active" href="about.html">About</a>
+    <a href="about.html">About</a>
     <a href="insights.html">Insights</a>
     <a href="contact.html">Contact</a>
   </nav>
-
-  <div class="nav-cta">
+  <div class="drawerActions">
     <a class="btn" href="tel:17324708233">Call</a>
     <a class="btn btnGold" href="contact.html">Consult</a>
-    <button class="menuBtn" id="openMenu">☰</button>
   </div>
-</div>
-</header>
-
-<div class="mobileOverlay" id="mobileOverlay"></div>
-<aside class="mobileDrawer" id="mobileDrawer">
-<div class="drawerTop">
-  <strong>Menu</strong>
-  <button id="closeMenu">✕</button>
-</div>
-<nav class="drawerNav">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="case-studies.html">Case Studies</a>
-  <a class="active" href="about.html">About</a>
-  <a href="insights.html">Insights</a>
-  <a href="contact.html">Contact</a>
-</nav>
 </aside>
 
-<main class="container page">
-<div class="kicker">About</div>
-<h1>Disciplined consulting with measurable outcomes.</h1>
-<p>
-Asani Enterprises works with leadership teams to clarify direction, improve execution,
-and establish operating systems that scale. Our focus is decision quality, accountability,
-and sustained performance.
-</p>
+<main class="container">
+  <div class="pageHead">
+    <div class="kicker"><span class="rule"></span> About</div>
+    <h1>Professional consulting with disciplined execution.</h1>
+    <p class="lead">
+      Asani Enterprises supports leadership teams with decision-quality strategy, operational rigor, and a cadence that sustains execution.
+      We emphasize clarity, accountability, and measurable progress.
+    </p>
+  </div>
+
+  <section>
+    <div class="grid2">
+      <div class="card">
+        <h3>How we work</h3>
+        <p>We structure work around outcomes: clear scope, clear owners, clear metrics, and consistent governance.</p>
+        <ul>
+          <li>Fact base → options → decision</li>
+          <li>Execution plan with owners & milestones</li>
+          <li>Weekly cadence, KPI review, escalation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Standards</h3>
+        <p>We deliver with professionalism and discretion, using leadership-ready communication and clean documentation.</p>
+        <ul>
+          <li>Executive summaries and decision logs</li>
+          <li>Risk mapping and mitigation planning</li>
+          <li>Confidential handling of sensitive work</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card" style="display:flex;gap:18px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;">
+      <div>
+        <div class="kicker" style="margin:0 0 10px;"><span class="rule"></span> Next step</div>
+        <h3 style="margin:0 0 10px;">Request a private consult</h3>
+        <p style="margin:0;color:var(--gray);line-height:1.8;max-width:75ch;">
+          Share your objective and timeline. We respond promptly and outline next steps.
+        </p>
+      </div>
+      <a class="btn btnGold" href="contact.html" style="flex:0 0 auto;">Contact</a>
+    </div>
+  </section>
 </main>
 
+<footer>
+  <div class="container footerGrid">
+    <div>
+      © <span id="year"></span> Asani Enterprises — Business Consulting
+      <div class="fine">Strategy and execution support for organizations that value clarity, discipline, and measurable progress.</div>
+    </div>
+    <div>
+      1001 S Main St #8227<br>Kalispell, MT 59901<br><br>
+      732-470-8233<br>info@asanienterprises.com
+    </div>
+  </div>
+</footer>
+
 <script>
-const o=document.getElementById("openMenu"),
-c=document.getElementById("closeMenu"),
-d=document.getElementById("mobileDrawer"),
-m=document.getElementById("mobileOverlay");
-o.onclick=()=>{d.classList.add("open");m.classList.add("open")};
-c.onclick=()=>{d.classList.remove("open");m.classList.remove("open")};
-m.onclick=c.onclick;
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function(){
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('mobileOverlay');
+
+    function openMenu(){
+      overlay.hidden = false;
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden','false');
+      openBtn.setAttribute('aria-expanded','true');
+      document.body.style.overflow='hidden';
+    }
+    function closeMenu(){
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      drawer.setAttribute('aria-hidden','true');
+      openBtn.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+      setTimeout(()=>{ overlay.hidden = true; }, 180);
+    }
+
+    openBtn && openBtn.addEventListener('click', openMenu);
+    closeBtn && closeBtn.addEventListener('click', closeMenu);
+    overlay && overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.drawerNav a').forEach(a=>{
+      a.classList.toggle('active', a.getAttribute('href') === path);
+    });
+  })();
 </script>
 </body>
 </html>
