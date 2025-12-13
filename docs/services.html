@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Services | Asani Enterprises</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Business consulting services: strategy, operations, execution, and transactions.">
+  <meta name="description" content="Consulting services across strategy, operations, execution, and transactions.">
 
   <link rel="icon" type="image/svg+xml"
     href='data:image/svg+xml;utf8,
@@ -21,14 +21,15 @@
     :root{
       --white:#ffffff; --black:#0a0a0a; --gray:#5f5f5f; --gray2:#7a7a7a;
       --line:#e6e6e6; --gold:#b08d3b; --container:1180px;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: Georgia,"Times New Roman",serif;
+      --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:var(--sans);color:var(--black);background:var(--white)}
+    body{margin:0;font-family:var(--sans);color:var(--black);background:#fff;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
-    .container{width:min(var(--container), calc(100% - 48px)); margin:0 auto;}
+    .container{width:min(var(--container),calc(100% - 48px));margin:0 auto}
 
+    /* Header (same system as homepage) */
     header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
     .brandWrap{display:flex;align-items:center;gap:12px;min-width:240px}
@@ -40,18 +41,27 @@
     .nav-links a:hover{color:var(--black)}
     .nav-links a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:6px}
     .nav-cta{display:flex;gap:10px;align-items:center}
+
     .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer;letter-spacing:.02em;display:inline-block}
     .btnGold{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(176,141,59,.15)}
     .btn:hover{background:#fafafa}
 
+    /* Hamburger */
     .menuBtn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+    .menuBtn:focus{outline:none;border-color:rgba(176,141,59,.55)}
     .menuIcon{width:18px;height:12px;position:relative}
     .menuIcon span{position:absolute;left:0;right:0;height:2px;background:var(--black)}
     .menuIcon span:nth-child(1){top:0}
     .menuIcon span:nth-child(2){top:5px}
     .menuIcon span:nth-child(3){top:10px}
+
+    /* Drawer */
     .mobileOverlay{position:fixed;inset:0;background:rgba(10,10,10,.45);display:none;z-index:999}
-    .mobileDrawer{position:fixed;top:0;right:-360px;width:min(360px,90vw);height:100vh;background:#fff;border-left:1px solid var(--line);z-index:1000;transition:right .18s ease;display:flex;flex-direction:column}
+    .mobileDrawer{
+      position:fixed;top:0;right:-360px;width:min(360px,90vw);height:100vh;background:#fff;
+      border-left:1px solid var(--line);z-index:1000;transition:right .18s ease;
+      display:flex;flex-direction:column;
+    }
     .mobileDrawer.open{right:0}
     .mobileOverlay.open{display:block}
     .drawerTop{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;border-bottom:1px solid var(--line)}
@@ -63,46 +73,35 @@
     .drawerActions{margin-top:auto;padding:18px;border-top:1px solid var(--line);display:flex;gap:10px}
     .drawerActions .btn{flex:1;text-align:center}
 
-    .page{padding:44px 0 16px}
-    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:10px}
-    .kicker .rule{width:42px;height:2px;background:var(--gold)}
-    h1{font-family:var(--serif);font-weight:600;font-size:40px;letter-spacing:-.02em;margin:14px 0 12px}
-    .lead{color:var(--gray);line-height:1.8;font-size:15.5px;max-width:80ch;margin:0}
+    /* Page */
+    .pageHead{padding:44px 0 18px}
+    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
+    h1{font-family:var(--serif);font-size:40px;font-weight:600;margin:10px 0 12px}
+    .lead{max-width:78ch;color:var(--gray);line-height:1.85;font-size:15.5px;margin:0}
 
-    section{padding:64px 0;border-top:1px solid var(--line)}
-    .sectionTitle{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px}
-    .sectionTitle .label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
-    .sectionTitle h2{margin:10px 0 0;font-family:var(--serif);font-weight:600;font-size:32px}
-    .sectionTitle p{margin:0;color:var(--gray);line-height:1.75;max-width:62ch;font-size:14.5px}
-
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    section{padding:56px 0;border-top:1px solid var(--line)}
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .box{border:1px solid var(--line);padding:22px;background:#fff}
     .box h3{margin:0 0 10px;font-size:16px}
     .box p{margin:0;color:var(--gray);line-height:1.75;font-size:14.5px}
     .box ul{margin:14px 0 0;padding-left:18px;color:var(--gray);line-height:1.75;font-size:14px}
     .box li{margin:7px 0}
 
-    .tabs{margin-top:6px}
-    .tabNav{display:flex;gap:34px;border-bottom:1px solid var(--line);flex-wrap:wrap;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
-    .tabNav button{background:none;border:none;cursor:pointer;padding:14px 0;color:var(--gray);border-bottom:2px solid transparent}
-    .tabNav button.active{color:var(--black);border-color:var(--gold)}
-    .tabPanel{display:none;padding-top:24px}
-    .tabPanel.active{display:block}
-    .twoCol{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
-    .rail{border:1px solid var(--line);padding:22px}
-    .rail h4{margin:0 0 10px;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
-    .rail p{margin:0;color:var(--gray);line-height:1.75;font-size:14px}
-    .ruleGold{width:72px;height:2px;background:var(--gold);margin:18px 0}
-
     footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
     .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
     .fine{color:var(--gray2);margin-top:10px;line-height:1.7}
 
+    /* Mobile hamburger fix (same as homepage behavior) */
     @media(max-width:980px){
-      .nav-links{display:none}
-      .menuBtn{display:flex}
-      .grid2,.grid3,.twoCol,.footerGrid{grid-template-columns:1fr}
+      .nav-links{display:none;}
+      .nav{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:12px 0;}
+      .nav-cta a.btn{display:none;}
+      .menuBtn{display:flex;width:48px;height:48px;justify-self:end;}
+      .brandWrap{min-width:0;}
+      .brandText .name,.brandText .tag{max-width:55vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+      .grid2,.grid3,.footerGrid{grid-template-columns:1fr;}
+      h1{font-size:32px}
     }
   </style>
 </head>
@@ -110,7 +109,7 @@
 <body>
 <header>
   <div class="container nav">
-    <a class="brandWrap" href="index.html">
+    <a class="brandWrap" href="index.html" aria-label="Asani Enterprises home">
       <div class="logoBox" aria-hidden="true">
         <svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="6" width="52" height="52" fill="white" stroke="#0A0A0A" stroke-width="2"/>
@@ -121,10 +120,13 @@
           <path d="M20 50h24" fill="none" stroke="#B08D3B" stroke-width="2" stroke-linecap="square"/>
         </svg>
       </div>
-      <div class="brandText"><div class="name">Asani Enterprises</div><div class="tag">Business Consulting</div></div>
+      <div class="brandText">
+        <div class="name">Asani Enterprises</div>
+        <div class="tag">Business Consulting</div>
+      </div>
     </a>
 
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a class="active" href="services.html">Services</a>
       <a href="case-studies.html">Case Studies</a>
@@ -137,7 +139,7 @@
       <a class="btn" href="tel:17324708233">Call</a>
       <a class="btn btnGold" href="contact.html">Request a consult</a>
 
-      <button class="menuBtn" id="openMenu" aria-label="Open menu" aria-expanded="false">
+      <button class="menuBtn" id="openMenu" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
         <div class="menuIcon" aria-hidden="true"><span></span><span></span><span></span></div>
       </button>
     </div>
@@ -150,7 +152,7 @@
     <div class="drawerTitle">Menu</div>
     <button class="drawerClose" id="closeMenu" aria-label="Close menu">✕</button>
   </div>
-  <nav class="drawerNav">
+  <nav class="drawerNav" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
@@ -165,138 +167,70 @@
 </aside>
 
 <main class="container">
-  <div class="page">
-    <div class="kicker"><span class="rule"></span> Services</div>
+  <div class="pageHead">
+    <div class="kicker">Services</div>
     <h1>Focused advisory across strategy, operations, and execution.</h1>
     <p class="lead">
-      We structure engagements to deliver decision-ready outputs quickly, then support execution through cadence and measurement.
+      We structure engagements to produce decision-ready outputs quickly, then support execution with a weekly cadence and measurement.
       Scope is defined upfront, deliverables are explicit, and progress is managed with discipline.
     </p>
   </div>
 
   <section>
-    <div class="sectionTitle">
-      <div>
-        <div class="label">Practice Areas</div>
-        <h2>What we deliver</h2>
+    <div class="grid3">
+      <div class="box">
+        <h3>Strategy</h3>
+        <p>Decision-grade clarity that aligns leadership around priorities, tradeoffs, and an operating plan.</p>
+        <ul>
+          <li>Strategic planning and scenario design</li>
+          <li>Market and competitive intelligence</li>
+          <li>Operating plan, KPIs, and governance</li>
+        </ul>
       </div>
-      <p>Review each practice area below, including typical deliverables and engagement structure.</p>
-    </div>
-
-    <div class="tabs">
-      <div class="tabNav">
-        <button class="active" type="button" data-tab="t1">Strategy</button>
-        <button type="button" data-tab="t2">Operations</button>
-        <button type="button" data-tab="t3">Execution</button>
-        <button type="button" data-tab="t4">Transactions</button>
+      <div class="box">
+        <h3>Operations</h3>
+        <p>Performance systems that increase control, speed, and quality without chaos.</p>
+        <ul>
+          <li>Operating cadence and reporting</li>
+          <li>Accountability and decision rights</li>
+          <li>Process redesign and efficiency</li>
+        </ul>
       </div>
-
-      <div class="tabPanel active" id="t1">
-        <div class="twoCol">
-          <div class="box">
-            <h3>Strategy</h3>
-            <p>Decision-grade clarity for leadership alignment, built for execution.</p>
-            <ul>
-              <li>Strategic options + recommendation</li>
-              <li>Market and competitor intelligence</li>
-              <li>Operating plan, KPIs, and governance</li>
-              <li>Stakeholder alignment and narrative</li>
-            </ul>
-          </div>
-          <div class="rail">
-            <h4>Engagement structure</h4>
-            <div class="ruleGold"></div>
-            <p><b>Diagnostic sprint</b> → fact base, constraints, risks, and option set.</p>
-            <p style="margin-top:10px;"><b>Plan</b> → priorities, owners, KPIs, and timeline.</p>
-            <p style="margin-top:10px;"><b>Cadence</b> → weekly leadership rhythm and decision log.</p>
-          </div>
-        </div>
+      <div class="box">
+        <h3>Execution</h3>
+        <p>Weekly rhythm, owners, and measurement that keeps initiatives moving through completion.</p>
+        <ul>
+          <li>Roadmap with owners and milestones</li>
+          <li>Weekly leadership review cadence</li>
+          <li>Decision log and escalation paths</li>
+        </ul>
       </div>
-
-      <div class="tabPanel" id="t2">
-        <div class="twoCol">
-          <div class="box">
-            <h3>Operations</h3>
-            <p>Performance systems that increase control, speed, and quality.</p>
-            <ul>
-              <li>Process mapping and redesign</li>
-              <li>Operating cadence and reporting</li>
-              <li>Accountability model and escalation paths</li>
-              <li>Efficiency and margin initiatives</li>
-            </ul>
-          </div>
-          <div class="rail">
-            <h4>What changes</h4>
-            <div class="ruleGold"></div>
-            <p>Clear owners. Clear measures. Clear rhythm.</p>
-            <p style="margin-top:10px;">Work becomes visible. Decisions become faster. Performance becomes measurable.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tabPanel" id="t3">
-        <div class="twoCol">
-          <div class="box">
-            <h3>Execution</h3>
-            <p>Weekly cadence that keeps initiatives moving.</p>
-            <ul>
-              <li>Initiative roadmap with owners and milestones</li>
-              <li>Weekly leadership cadence and reporting</li>
-              <li>Decision log and issue resolution</li>
-              <li>Metrics review and adjustment loop</li>
-            </ul>
-          </div>
-          <div class="rail">
-            <h4>How progress is managed</h4>
-            <div class="ruleGold"></div>
-            <p>Weekly review against KPIs and milestones.</p>
-            <p style="margin-top:10px;">Fast escalation for blockers.</p>
-            <p style="margin-top:10px;">Disciplined follow-through until completion.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tabPanel" id="t4">
-        <div class="twoCol">
-          <div class="box">
-            <h3>Transactions</h3>
-            <p>Structured preparation for stronger outcomes.</p>
-            <ul>
-              <li>Negotiation architecture and positioning</li>
-              <li>Diligence support and risk mapping</li>
-              <li>Stakeholder alignment and messaging</li>
-              <li>Integration planning and execution support</li>
-            </ul>
-          </div>
-          <div class="rail">
-            <h4>Where we add leverage</h4>
-            <div class="ruleGold"></div>
-            <p>Information discipline. Clear decision rights. Controlled timelines.</p>
-            <p style="margin-top:10px;">Better preparation drives better terms.</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <section>
-    <div class="sectionTitle">
-      <div>
-        <div class="label">Engagement Standards</div>
-        <h2>How engagements are run</h2>
+    <div class="grid2">
+      <div class="box">
+        <h3>Transactions & negotiation support</h3>
+        <p>Structured preparation and disciplined messaging designed to protect downside and improve outcomes.</p>
+        <ul>
+          <li>Negotiation architecture and positioning</li>
+          <li>Diligence support and risk mapping</li>
+          <li>Integration planning and follow-through</li>
+        </ul>
       </div>
-      <p>Professional delivery: clear scope, clear outputs, and a cadence that keeps work moving.</p>
-    </div>
-
-    <div class="grid3">
-      <div class="box"><h3>Clear scope</h3><p>Objectives, constraints, and success metrics defined upfront.</p></div>
-      <div class="box"><h3>Decision-ready outputs</h3><p>Options, tradeoffs, owners, and timelines built for leadership use.</p></div>
-      <div class="box"><h3>Cadence and measurement</h3><p>Weekly rhythm, reporting, and a decision log to maintain control.</p></div>
-    </div>
-
-    <div style="margin-top:18px;">
-      <a class="btn btnGold" href="contact.html">Request a consult</a>
+      <div class="box">
+        <h3>Engagement standards</h3>
+        <p>Professional delivery built on clarity, accountability, and measurable progress.</p>
+        <ul>
+          <li>Clear scope and success metrics</li>
+          <li>Decision-ready outputs (not fluff)</li>
+          <li>Cadence, measurement, and follow-through</li>
+        </ul>
+        <div style="margin-top:14px;">
+          <a class="btn btnGold" href="contact.html">Request a consult</a>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -317,7 +251,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Mobile menu
   (function(){
     const openBtn = document.getElementById('openMenu');
     const closeBtn = document.getElementById('closeMenu');
@@ -328,38 +261,25 @@
       overlay.hidden = false;
       overlay.classList.add('open');
       drawer.classList.add('open');
-      openBtn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      openBtn.setAttribute('aria-expanded','true');
+      document.body.style.overflow='hidden';
     }
     function closeMenu(){
       drawer.classList.remove('open');
       overlay.classList.remove('open');
-      openBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      openBtn.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
       setTimeout(()=>{ overlay.hidden = true; }, 180);
     }
 
-    openBtn.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+    openBtn && openBtn.addEventListener('click', openMenu);
+    closeBtn && closeBtn.addEventListener('click', closeMenu);
+    overlay && overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
 
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.drawerNav a').forEach(a=>{
       a.classList.toggle('active', a.getAttribute('href') === path);
-    });
-  })();
-
-  // Services tabs
-  (function(){
-    const btns = document.querySelectorAll('.tabNav button');
-    const panels = document.querySelectorAll('.tabPanel');
-    btns.forEach(b=>{
-      b.addEventListener('click', ()=>{
-        const id = b.getAttribute('data-tab');
-        btns.forEach(x=>x.classList.toggle('active', x===b));
-        panels.forEach(p=>p.classList.toggle('active', p.id===id));
-      });
     });
   })();
 </script>
