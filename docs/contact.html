@@ -8,7 +8,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32"
 href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
-<link rel="icon" type="image/png" sizes="16x16"
+  <link rel="icon" type="image/png" sizes="16x16"
 href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
 
   <style>
@@ -70,6 +70,16 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
     .field{display:flex;flex-direction:column;gap:8px;margin-top:12px}
     .help{margin-top:10px;color:var(--gray2);font-size:13px;line-height:1.7}
 
+    .notice{
+      border:1px solid rgba(176,141,59,.35);
+      background:rgba(176,141,59,.07);
+      padding:12px 14px;
+      margin-bottom:14px;
+      color:#3b2f12;
+      font-size:13.5px;
+      line-height:1.6;
+    }
+
     footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
     .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
     .fine{color:var(--gray2);margin-top:10px;line-height:1.7}
@@ -91,9 +101,9 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
     <a class="brandWrap" href="index.html" aria-label="Asani Enterprises home">
       <div class="logoBox" aria-hidden="true">
         <img
-  src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png"
-  alt="Asani Enterprises"
-  style="width:32px;height:32px;object-fit:contain;display:block;">
+          src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png"
+          alt="Asani Enterprises"
+          style="width:32px;height:32px;object-fit:contain;display:block;">
       </div>
       <div class="brandText">
         <div class="name">Asani Enterprises</div>
@@ -153,37 +163,49 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
   <section id="form">
     <div class="grid">
       <div class="panel">
-        <form id="mailform">
+
+        <div id="formSuccess" class="notice" style="display:none;">
+          Thank you — your request has been sent. We will respond promptly.
+        </div>
+
+        <!-- ✅ UPDATED: Formspree submission (no layout changes) -->
+        <form id="mailform" action="https://formspree.io/f/mldqkvrb" method="POST">
+          <!-- Optional: customize subject + redirect back -->
+          <input type="hidden" name="_subject" value="New consulting inquiry — AsaniEnterprises.com">
+          <input type="hidden" name="_next" value="https://www.asanienterprises.com/contact.html?success=1">
+          <!-- Honeypot (spam) -->
+          <input type="text" name="_gotcha" style="display:none">
+
           <div class="row">
             <div class="field">
               <label for="name">Name</label>
-              <input id="name" required placeholder="Your name">
+              <input id="name" name="name" required placeholder="Your name">
             </div>
             <div class="field">
               <label for="org">Organization</label>
-              <input id="org" placeholder="Company">
+              <input id="org" name="organization" placeholder="Company">
             </div>
           </div>
 
           <div class="row">
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" type="email" required placeholder="you@example.com">
+              <input id="email" name="email" type="email" required placeholder="you@example.com">
             </div>
             <div class="field">
               <label for="phone">Phone</label>
-              <input id="phone" placeholder="Optional">
+              <input id="phone" name="phone" placeholder="Optional">
             </div>
           </div>
 
           <div class="field">
             <label for="topic">Topic</label>
-            <input id="topic" required placeholder="Strategy, operations, execution & transactions">
+            <input id="topic" name="topic" required placeholder="Strategy, operations, execution & transactions">
           </div>
 
           <div class="field">
             <label for="msg">Message</label>
-            <textarea id="msg" required placeholder="Timeline, constraints and what success looks like"></textarea>
+            <textarea id="msg" name="message" required placeholder="Timeline, constraints and what success looks like"></textarea>
           </div>
 
           <div class="row" style="margin-top:14px">
@@ -206,7 +228,7 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
           Kalispell, MT 59901<br><br>
 
           <b style="color:var(--black)">Phone</b><br>
-          <a href="tel:17324708233" style="border-bottom:2px solid var(--gold);padding-bottom:4px;">406-955-3036</a><br><br>
+          <a href="tel:14069553036" style="border-bottom:2px solid var(--gold);padding-bottom:4px;">406-955-3036</a><br><br>
 
           <b style="color:var(--black)">Email</b><br>
           <a href="mailto:info@asanienterprises.com" style="border-bottom:2px solid var(--gold);padding-bottom:4px;">info@asanienterprises.com</a>
@@ -268,29 +290,12 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
       a.classList.toggle('active', a.getAttribute('href') === path);
     });
 
-    // mailto form
-    const form = document.getElementById("mailform");
-    form && form.addEventListener("submit", function(e){
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const org  = document.getElementById("org").value.trim() || "NA";
-      const email= document.getElementById("email").value.trim();
-      const phone= document.getElementById("phone").value.trim() || "NA";
-      const topic= document.getElementById("topic").value.trim();
-      const msg  = document.getElementById("msg").value.trim();
-
-      const subject = encodeURIComponent("Consulting inquiry: " + topic);
-      const body = encodeURIComponent(
-        "Name: " + name + "\n" +
-        "Organization: " + org + "\n" +
-        "Email: " + email + "\n" +
-        "Phone: " + phone + "\n\n" +
-        "Topic: " + topic + "\n\n" +
-        "Message:\n" + msg + "\n\n" +
-        "Sent via www.asanienterprises.com"
-      );
-      window.location.href = "mailto:info@asanienterprises.com?subject=" + subject + "&body=" + body;
-    });
+    // ✅ Show success message after Formspree redirect
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === '1') {
+      const box = document.getElementById('formSuccess');
+      if (box) box.style.display = 'block';
+    }
   })();
 </script>
 </body>
