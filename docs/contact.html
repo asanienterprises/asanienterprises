@@ -7,9 +7,9 @@
   <meta name="description" content="Contact Asani Enterprises to request a consultant.">
 
   <link rel="icon" type="image/png" sizes="32x32"
-href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
-<link rel="icon" type="image/png" sizes="16x16"
-href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
+    href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
 
   <style>
     :root{--white:#fff;--black:#0a0a0a;--gray:#5f5f5f;--gray2:#7a7a7a;--line:#e6e6e6;--gold:#b08d3b;--container:1180px;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
@@ -17,89 +17,68 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
     body{margin:0;font-family:var(--sans);color:var(--black);background:#fff;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     .container{width:min(var(--container),calc(100% - 48px));margin:0 auto}
-
     header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
-    .brandWrap{display:flex;align-items:center;gap:12px;min-width:0}
-    .logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;background:#fff;flex:0 0 auto}
-    .brandText{line-height:1.05;min-width:0}
-    .brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .brandText .tag{margin-top:5px;font-size:12px;color:var(--gray);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--gray);white-space:nowrap}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brandWrap{display:flex;align-items:center;gap:12px}
+    .logoBox{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center}
+    .brandText .name{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
+    .brandText .tag{margin-top:5px;font-size:12px;color:var(--gray)}
+    .nav-links{display:flex;gap:26px;font-size:14px;color:var(--gray)}
     .nav-links a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:6px}
-    .nav-cta{display:flex;gap:10px;align-items:center;flex:0 0 auto}
-    .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer;letter-spacing:.02em;display:inline-block}
-    .btnGold{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(176,141,59,.15)}
+    .btn{border:1px solid var(--black);background:#fff;padding:10px 14px;font-size:13px;cursor:pointer}
+    .btnGold{border-color:var(--gold)}
     .btn:hover{background:#fafafa}
 
-    .menuBtn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
-    .menuBtn:focus{outline:none;border-color:rgba(176,141,59,.55)}
-    .menuIcon{width:18px;height:12px;position:relative}
-    .menuIcon span{position:absolute;left:0;right:0;height:2px;background:var(--black)}
-    .menuIcon span:nth-child(1){top:0}
-    .menuIcon span:nth-child(2){top:5px}
-    .menuIcon span:nth-child(3){top:10px}
-
-    .mobileOverlay{position:fixed;inset:0;background:rgba(10,10,10,.45);display:none;z-index:999}
-    .mobileDrawer{position:fixed;top:0;right:-360px;width:min(360px,90vw);height:100vh;background:#fff;border-left:1px solid var(--line);z-index:1000;transition:right .18s ease;display:flex;flex-direction:column}
-    .mobileDrawer.open{right:0}
-    .mobileOverlay.open{display:block}
-    .drawerTop{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;border-bottom:1px solid var(--line)}
-    .drawerTitle{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
-    .drawerClose{width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer}
-    .drawerNav{padding:10px 18px 18px}
-    .drawerNav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:var(--gray);font-size:14px}
-    .drawerNav a.active{color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:12px}
-    .drawerActions{margin-top:auto;padding:18px;border-top:1px solid var(--line);display:flex;gap:10px}
-    .drawerActions .btn{flex:1;text-align:center}
-
     .pageHead{padding:46px 0 18px}
-    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);display:flex;align-items:center;gap:10px}
-    .kicker .rule{width:42px;height:2px;background:var(--gold)}
-    h1{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.12;margin:16px 0 10px}
-    .lead{color:var(--gray);font-size:15.5px;line-height:1.9;margin:0;max-width:85ch}
+    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
+    h1{font-family:var(--serif);font-size:40px;margin:16px 0 10px}
+    .lead{color:var(--gray);font-size:15.5px;line-height:1.9}
 
     section{padding:56px 0;border-top:1px solid var(--line)}
     .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    .panel{border:1px solid var(--line);padding:22px;background:#fff}
+    .panel{border:1px solid var(--line);padding:22px}
     label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray2)}
-    input,textarea{width:100%;border:1px solid var(--line);padding:12px;font-size:14px;outline:none;background:#fff}
-    input:focus,textarea:focus{border-color:rgba(176,141,59,.6)}
+    input,textarea{width:100%;border:1px solid var(--line);padding:12px;font-size:14px}
     textarea{min-height:150px;resize:vertical}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .field{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-    .help{margin-top:10px;color:var(--gray2);font-size:13px;line-height:1.7}
+
+    .statusBox{
+      margin-top:18px;
+      padding:18px 20px;
+      border:1px solid rgba(176,141,59,.5);
+      background:#faf9f6;
+      font-family:var(--serif);
+      font-size:15px;
+      line-height:1.7;
+      display:none;
+    }
+
+    .legal{
+      margin-top:18px;
+      font-size:12.5px;
+      line-height:1.7;
+      color:var(--gray2);
+      border-top:1px solid var(--line);
+      padding-top:14px;
+    }
 
     footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
-    .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
-    .fine{color:var(--gray2);margin-top:10px;line-height:1.7}
-
-    .statusBox{margin-top:16px;padding:16px 18px;border:1px solid rgba(176,141,59,.45);background:#faf9f6;color:var(--black);line-height:1.7;display:none}
-    .statusBox .rowTop{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-    .statusBox img{width:20px;height:20px;object-fit:contain;display:block}
-    .fineprint{margin-top:10px;color:var(--gray2);font-size:12.5px;line-height:1.7}
-
-
     @media(max-width:980px){
-      .nav-links{display:none;}
-      .nav{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:12px 0;}
-      .nav-cta a.btn{display:none;}
-      .menuBtn{display:flex;width:48px;height:48px;justify-self:end;}
+      .grid,.row{grid-template-columns:1fr}
       h1{font-size:32px}
-      .grid,.footerGrid,.row{grid-template-columns:1fr}
     }
   </style>
 </head>
 
 <body>
+
 <header>
   <div class="container nav">
-    <a class="brandWrap" href="index.html" aria-label="Asani Enterprises home">
-      <div class="logoBox" aria-hidden="true">
-        <img
-  src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png"
-  alt="Asani Enterprises"
-  style="width:32px;height:32px;object-fit:contain;display:block;">
+    <a class="brandWrap" href="index.html">
+      <div class="logoBox">
+        <img src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png"
+             alt="Asani Enterprises" style="width:32px;height:32px">
       </div>
       <div class="brandText">
         <div class="name">Asani Enterprises</div>
@@ -107,7 +86,7 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
       </div>
     </a>
 
-    <nav class="nav-links" aria-label="Primary navigation">
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="case-studies.html">Case Studies</a>
@@ -115,246 +94,128 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
       <a href="insights.html">Insights</a>
       <a class="active" href="contact.html">Contact</a>
     </nav>
-
-    <div class="nav-cta">
-      <a class="btn" href="tel:14069553036">Call</a>
-      <a class="btn btnGold" href="#form">Request Consultation</a>
-
-      <button class="menuBtn" id="openMenu" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
-        <div class="menuIcon" aria-hidden="true"><span></span><span></span><span></span></div>
-      </button>
-    </div>
   </div>
 </header>
 
-<div class="mobileOverlay" id="mobileOverlay" hidden></div>
-<aside class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
-  <div class="drawerTop">
-    <div class="drawerTitle">Menu</div>
-    <button class="drawerClose" id="closeMenu" aria-label="Close menu">✕</button>
-  </div>
-  <nav class="drawerNav" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="case-studies.html">Case Studies</a>
-    <a href="about.html">About</a>
-    <a href="insights.html">Insights</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="drawerActions">
-    <a class="btn" href="tel:14069553036">Call</a>
-    <a class="btn btnGold" href="#form">Consult</a>
-  </div>
-</aside>
-
 <main class="container">
   <div class="pageHead">
-    <div class="kicker"><span class="rule"></span> Contact</div>
+    <div class="kicker">Contact</div>
     <h1>Request A Consultant.</h1>
-    <p class="lead">
-      Share your objective and timeline.
-    </p>
+    <p class="lead">Share your objective and timeline.</p>
   </div>
 
-  <section id="form">
+  <section>
     <div class="grid">
       <div class="panel">
-        <form id="mailform">
+        <form id="contactForm">
           <div class="row">
             <div class="field">
-              <label for="name">Name</label>
-              <input id="name" required placeholder="Your name">
+              <label>Name</label>
+              <input id="name" required>
             </div>
             <div class="field">
-              <label for="org">Organization</label>
-              <input id="org" placeholder="Company">
+              <label>Organization</label>
+              <input id="org">
             </div>
           </div>
 
           <div class="row">
             <div class="field">
-              <label for="email">Email</label>
-              <input id="email" type="email" required placeholder="you@example.com">
+              <label>Email</label>
+              <input id="email" type="email" required>
             </div>
             <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" placeholder="Optional">
+              <label>Phone</label>
+              <input id="phone">
             </div>
           </div>
 
           <div class="field">
-            <label for="topic">Topic</label>
-            <input id="topic" required placeholder="Strategy, operations, execution & transactions">
+            <label>Topic</label>
+            <input id="topic">
           </div>
 
           <div class="field">
-            <label for="msg">Message</label>
-            <textarea id="msg" required placeholder="Timeline, constraints and what success looks like"></textarea>
+            <label>Message</label>
+            <textarea id="message"></textarea>
           </div>
 
-          <div class="row" style="margin-top:14px">
-            <button class="btn btnGold" type="submit">Send request</button>
-            <a class="btn" href="tel:14069553036">Call</a>
-          </div>
+          <button class="btn btnGold" type="submit">Send request</button>
 
-          <div class="help">
-            1001 S Main St #8227, Kalispell, MT 59901 · info@asanienterprises.com
-          </div>
+          <div class="statusBox" id="statusBox"></div>
 
-          <div class="statusBox" id="formStatus" role="status" aria-live="polite"></div>
-
-          <div class="fineprint">
-            By submitting this request, you acknowledge that we have received your information for review.
-            This message confirms receipt only and does not constitute an agreement, engagement, or commitment of services.
-            Do not submit confidential or highly sensitive information until a formal engagement is confirmed in writing.
+          <div class="legal">
+            This submission is confidential. Receipt of this request does not constitute
+            an engagement, agreement, or commitment of services. Any advisory services
+            are subject to formal written agreement.
           </div>
         </form>
       </div>
 
       <div class="panel">
-        <div class="kicker" style="margin:0 0 10px;"><span class="rule"></span> Direct</div>
-        <h3 style="margin:0 0 12px;font-family:var(--serif);font-size:26px;">Contact Details</h3>
-        <p style="margin:0;color:var(--gray);line-height:1.9;">
-          <b style="color:var(--black)">Address</b><br>
-          1001 S Main St #8227<br>
-          Kalispell, MT 59901<br><br>
-
-          <b style="color:var(--black)">Phone</b><br>
-          <a href="tel:17324708233" style="border-bottom:2px solid var(--gold);padding-bottom:4px;">406-955-3036</a><br><br>
-
-          <b style="color:var(--black)">Email</b><br>
-          <a href="mailto:info@asanienterprises.com" style="border-bottom:2px solid var(--gold);padding-bottom:4px;">info@asanienterprises.com</a>
-        </p>
-        <div class="help" style="margin-top:14px;">
-          We respond promptly and confirm scope, timeline and decision points during the initial consultation.
-        </div>
+        <strong>Contact Details</strong><br><br>
+        1001 S Main St #8227<br>
+        Kalispell, MT 59901<br><br>
+        info@asanienterprises.com<br>
+        406-955-3036
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="container footerGrid">
-    <div>
-      © <span id="year"></span> Asani Enterprises — Business Consulting
-      <div class="fine">Strategy and execution support for organizations that value clarity, discipline and measurable progress.</div>
-    </div>
-    <div>
-      1001 S Main St #8227<br>Kalispell, MT 59901<br><br>
-      406-955-3036<br>info@asanienterprises.com
-    </div>
+  <div class="container">
+    © <span id="year"></span> Asani Enterprises — Business Consulting
   </div>
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  (function(){
-    const openBtn = document.getElementById('openMenu');
-    const closeBtn = document.getElementById('closeMenu');
-    const drawer = document.getElementById('mobileDrawer');
-    const overlay = document.getElementById('mobileOverlay');
+  const form = document.getElementById("contactForm");
+  const statusBox = document.getElementById("statusBox");
 
-    function openMenu(){
-      overlay.hidden = false;
-      overlay.classList.add('open');
-      drawer.classList.add('open');
-      drawer.setAttribute('aria-hidden','false');
-      openBtn.setAttribute('aria-expanded','true');
-      document.body.style.overflow='hidden';
-    }
-    function closeMenu(){
-      drawer.classList.remove('open');
-      overlay.classList.remove('open');
-      drawer.setAttribute('aria-hidden','true');
-      openBtn.setAttribute('aria-expanded','false');
-      document.body.style.overflow='';
-      setTimeout(()=>{ overlay.hidden = true; }, 180);
-    }
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    openBtn && openBtn.addEventListener('click', openMenu);
-    closeBtn && closeBtn.addEventListener('click', closeMenu);
-    overlay && overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+    statusBox.style.display = "none";
 
-    const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.drawerNav a').forEach(a=>{
-      a.classList.toggle('active', a.getAttribute('href') === path);
-    });
+    const payload = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      phone: phone.value.trim(),
+      org: org.value.trim(),
+      topic: topic.value.trim(),
+      message: message.value.trim(),
+      company_website: ""
+    };
 
-        // contact form (native submission)
-    const form = document.getElementById("mailform");
-    const statusBox = document.getElementById("formStatus");
+    const btn = form.querySelector("button");
+    btn.disabled = true;
+    btn.textContent = "Submitting…";
 
-    function setStatus(kind, headline, detail){
-      if(!statusBox) return;
-      const safeHeadline = String(headline || "");
-      const safeDetail = String(detail || "");
-      statusBox.style.display = "block";
-      statusBox.innerHTML = `
-        <div class="rowTop">
-          <img src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises">
-          <div style="font-weight:700;letter-spacing:.02em;">${safeHeadline}</div>
-        </div>
-        <div style="color:var(--gray);font-size:13.5px;">${safeDetail}</div>
-      `;
-      if(kind === "error") {
-        statusBox.style.borderColor = "rgba(10,10,10,.18)";
-        statusBox.style.background = "#fff";
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        form.reset();
+        statusBox.innerHTML = "<strong>Thank you.</strong><br>Your request has been received and is under review. A confirmation has been sent to your email.";
       } else {
-        statusBox.style.borderColor = "rgba(176,141,59,.45)";
-        statusBox.style.background = "#faf9f6";
+        statusBox.textContent = "Unable to submit your request at this time. Please try again shortly.";
       }
+    } catch {
+      statusBox.textContent = "Network issue. Please try again shortly.";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Send request";
+      statusBox.style.display = "block";
     }
-
-    form && form.addEventListener("submit", async function(e){
-      e.preventDefault();
-
-      const btn = form.querySelector("button[type='submit']");
-      if(btn) { btn.disabled = true; btn.textContent = "Submitting…"; }
-
-      const payload = {
-        name: document.getElementById("name").value.trim(),
-        org:  document.getElementById("org").value.trim(),
-        email:document.getElementById("email").value.trim(),
-        phone:document.getElementById("phone").value.trim(),
-        topic:document.getElementById("topic").value.trim(),
-        message:document.getElementById("msg").value.trim(),
-        company_website: ""
-      };
-
-      // Basic validation
-      if(!payload.name || !payload.email || !payload.topic || !payload.message) {
-        if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
-        setStatus("error","Please complete the required fields.","Name, email, topic, and message are required.");
-        return;
-      }
-
-      try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if(res.ok) {
-          form.reset();
-          setStatus(
-            "ok",
-            "Request received.",
-            "Thank you. Your inquiry has been received and is now under review. A confirmation has been sent to your email."
-          );
-          if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
-        } else {
-          if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
-          setStatus("error","Unable to submit right now.","Please try again shortly.");
-        }
-      } catch (err) {
-        if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
-        setStatus("error","Network issue.","Please try again shortly.");
-      }
-    });
-  })();
+  });
 </script>
+
 </body>
 </html>
