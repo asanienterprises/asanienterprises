@@ -74,6 +74,12 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
     .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
     .fine{color:var(--gray2);margin-top:10px;line-height:1.7}
 
+    .statusBox{margin-top:16px;padding:16px 18px;border:1px solid rgba(176,141,59,.45);background:#faf9f6;color:var(--black);line-height:1.7;display:none}
+    .statusBox .rowTop{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .statusBox img{width:20px;height:20px;object-fit:contain;display:block}
+    .fineprint{margin-top:10px;color:var(--gray2);font-size:12.5px;line-height:1.7}
+
+
     @media(max-width:980px){
       .nav-links{display:none;}
       .nav{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:12px 0;}
@@ -189,13 +195,18 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
           <div class="row" style="margin-top:14px">
             <button class="btn btnGold" type="submit">Send request</button>
             <a class="btn" href="tel:14069553036">Call</a>
-          <div id="formStatus" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid rgba(176,141,59,.45);background:#faf9f6;font-family:Georgia,'Times New Roman',serif;font-size:14.5px;line-height:1.75;color:#0a0a0a;"></div>
-
-
           </div>
 
           <div class="help">
             1001 S Main St #8227, Kalispell, MT 59901 · info@asanienterprises.com
+          </div>
+
+          <div class="statusBox" id="formStatus" role="status" aria-live="polite"></div>
+
+          <div class="fineprint">
+            By submitting this request, you acknowledge that we have received your information for review.
+            This message confirms receipt only and does not constitute an agreement, engagement, or commitment of services.
+            Do not submit confidential or highly sensitive information until a formal engagement is confirmed in writing.
           </div>
         </form>
       </div>
@@ -270,68 +281,77 @@ href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/d
     document.querySelectorAll('.drawerNav a').forEach(a=>{
       a.classList.toggle('active', a.getAttribute('href') === path);
     });
-    // consultation form (native submission)
+
+        // contact form (native submission)
     const form = document.getElementById("mailform");
     const statusBox = document.getElementById("formStatus");
 
-    function showStatus(html){
+    function setStatus(kind, headline, detail){
       if(!statusBox) return;
-      statusBox.innerHTML = html;
+      const safeHeadline = String(headline || "");
+      const safeDetail = String(detail || "");
       statusBox.style.display = "block";
-      statusBox.scrollIntoView({behavior:"smooth", block:"nearest"});
+      statusBox.innerHTML = `
+        <div class="rowTop">
+          <img src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises">
+          <div style="font-weight:700;letter-spacing:.02em;">${safeHeadline}</div>
+        </div>
+        <div style="color:var(--gray);font-size:13.5px;">${safeDetail}</div>
+      `;
+      if(kind === "error") {
+        statusBox.style.borderColor = "rgba(10,10,10,.18)";
+        statusBox.style.background = "#fff";
+      } else {
+        statusBox.style.borderColor = "rgba(176,141,59,.45)";
+        statusBox.style.background = "#faf9f6";
+      }
     }
 
     form && form.addEventListener("submit", async function(e){
       e.preventDefault();
 
       const btn = form.querySelector("button[type='submit']");
-      const originalBtnText = btn ? btn.textContent : "";
+      if(btn) { btn.disabled = true; btn.textContent = "Submitting…"; }
 
-      const name = document.getElementById("name").value.trim();
-      const org  = document.getElementById("org").value.trim();
-      const email= document.getElementById("email").value.trim();
-      const phone= document.getElementById("phone").value.trim();
-      const topic= document.getElementById("topic").value.trim();
-      const msg  = document.getElementById("msg").value.trim();
+      const payload = {
+        name: document.getElementById("name").value.trim(),
+        org:  document.getElementById("org").value.trim(),
+        email:document.getElementById("email").value.trim(),
+        phone:document.getElementById("phone").value.trim(),
+        topic:document.getElementById("topic").value.trim(),
+        message:document.getElementById("msg").value.trim(),
+        company_website: ""
+      };
 
-      if(!name || !email || !topic || !msg){
-        showStatus("<strong>Please complete the required fields.</strong><br/>Name, Email, Topic, and Message are required.");
+      // Basic validation
+      if(!payload.name || !payload.email || !payload.topic || !payload.message) {
+        if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
+        setStatus("error","Please complete the required fields.","Name, email, topic, and message are required.");
         return;
       }
 
-      if(btn){
-        btn.disabled = true;
-        btn.textContent = "Submitting…";
-      }
-
-      try{
+      try {
         const res = await fetch("/api/contact", {
           method: "POST",
-          headers: {"Content-Type":"application/json"},
-          body: JSON.stringify({
-            name, org, email, phone, topic,
-            message: msg,
-            company_website: "" // honeypot
-          })
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
         });
 
-        if(res.ok){
+        if(res.ok) {
           form.reset();
-          showStatus("<strong>Thank you.</strong><br/>Your request has been received and is currently under review. A confirmation has been sent to your email.");
-          if(btn) btn.textContent = "Request sent";
-        }else{
-          showStatus("<strong>We couldn’t submit your request right now.</strong><br/>Please try again shortly.");
-          if(btn){
-            btn.disabled = false;
-            btn.textContent = originalBtnText || "Send request";
-          }
+          setStatus(
+            "ok",
+            "Request received.",
+            "Thank you. Your inquiry has been received and is now under review. A confirmation has been sent to your email."
+          );
+          if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
+        } else {
+          if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
+          setStatus("error","Unable to submit right now.","Please try again shortly.");
         }
-      }catch(err){
-        showStatus("<strong>Network issue.</strong><br/>Please try again shortly.");
-        if(btn){
-          btn.disabled = false;
-          btn.textContent = originalBtnText || "Send request";
-        }
+      } catch (err) {
+        if(btn) { btn.disabled = false; btn.textContent = "Send request"; }
+        setStatus("error","Network issue.","Please try again shortly.");
       }
     });
   })();
