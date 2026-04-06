@@ -4,12 +4,10 @@
   <meta charset="utf-8">
   <title>Credit Repair & Consultation | Asani Enterprises</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Private credit repair and consultation services with secure document upload and structured dispute preparation.">
+  <meta name="description" content="Private credit repair consultation, dispute preparation, and secure client document intake.">
 
-  <link rel="icon" type="image/png" sizes="32x32"
-    href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
-  <link rel="icon" type="image/png" sizes="16x16"
-    href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png">
 
   <style>
     :root{
@@ -46,7 +44,7 @@
     .btn:hover{background:#fafafa}
     .btnGold{border-color:var(--gold);box-shadow:inset 0 0 0 1px rgba(176,141,59,.15)}
     .btnBlack{background:var(--black);color:#fff}
-    .btnBlack:hover{opacity:.92}
+    .btnBlack:hover{opacity:.92;background:var(--black)}
 
     .menuBtn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
     .menuBtn:focus{outline:none;border-color:rgba(176,141,59,.55)}
@@ -80,28 +78,21 @@
     .statNum{font-family:var(--serif);font-size:26px}
     .statLabel{margin-top:5px;color:var(--gray);font-size:13px;line-height:1.6}
 
-    .portalCard{border:1px solid var(--line);background:#fff;box-shadow:0 18px 48px rgba(0,0,0,.06)}
-    .portalHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
-    .portalTitleTop{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
-    .portalTitle{margin-top:6px;font-size:18px;font-weight:600}
-    .portalBadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-    .portalBody{padding:22px;display:grid;gap:16px}
-    .uploadBox,.miniCard{border:1px solid var(--line);padding:18px;background:#fff}
-    .uploadBox h3,.miniCard h3{margin:0;font-size:15px}
-    .uploadBox p,.miniCard p{margin:8px 0 0;color:var(--gray);font-size:14px;line-height:1.7}
-    .dropZone{margin-top:14px;border:2px dashed rgba(176,141,59,.35);background:rgba(176,141,59,.05);padding:30px 18px;text-align:center}
-    .dropZone strong{display:block;font-size:14px}
-    .dropZone span{display:block;margin-top:6px;font-size:12px;color:var(--gray)}
-    .dropZone .btn{margin-top:14px}
-    .statusBar{margin-top:10px;height:8px;background:#f3f3f3;overflow:hidden}
-    .statusFill{width:34%;height:100%;background:var(--gold)}
-    .portalGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .overviewCard{border:1px solid var(--line);background:#fff;box-shadow:0 18px 48px rgba(0,0,0,.06)}
+    .overviewHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
+    .overviewTitleTop{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2)}
+    .overviewTitle{margin-top:6px;font-size:18px;font-weight:600}
+    .overviewBadge{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+    .overviewBody{padding:22px;display:grid;gap:16px}
+    .miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .miniCard,.noteCard{border:1px solid var(--line);padding:18px;background:#fff}
+    .miniCard h3,.noteCard h3{margin:0;font-size:15px}
+    .miniCard p,.noteCard p{margin:8px 0 0;color:var(--gray);font-size:14px;line-height:1.7}
 
     section{padding:62px 0;border-top:1px solid var(--line)}
     .sectionHead{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:start}
     .sectionTitle{font-family:var(--serif);font-size:38px;line-height:1.12;margin:10px 0 0}
     .sectionText{color:var(--gray);line-height:1.9;font-size:15px;margin:0}
-
     .serviceGrid,.processGrid{margin-top:28px;display:grid;gap:18px}
     .serviceGrid{grid-template-columns:repeat(3,1fr)}
     .processGrid{grid-template-columns:repeat(4,1fr)}
@@ -117,9 +108,9 @@
     .docList li{display:flex;gap:10px;align-items:flex-start;color:var(--gray);font-size:14px;line-height:1.8;margin:10px 0}
     .docList li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:8px;flex:0 0 auto}
 
-    .intakeCard{border:1px solid var(--line);background:#fff;box-shadow:0 18px 48px rgba(0,0,0,.05)}
-    .intakeHead{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
-    .intakeBody{padding:22px}
+    .uploadCard{border:1px solid var(--line);background:#fff;box-shadow:0 18px 48px rgba(0,0,0,.05)}
+    .uploadHead{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+    .uploadBody{padding:22px}
     .label{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray2);margin-bottom:8px}
     .input,.textarea{width:100%;border:1px solid #d9d9d9;padding:13px 14px;font-size:14px;font-family:var(--sans);outline:none;background:#fff}
     .input:focus,.textarea:focus{border-color:rgba(176,141,59,.65)}
@@ -135,6 +126,7 @@
     .consultForm .input::placeholder,.consultForm .textarea::placeholder{color:#a7a7a7}
     .consultForm .wide{grid-column:1 / -1}
     .goldText{color:var(--gold)}
+    .notice{border:1px solid rgba(176,141,59,.35);background:rgba(176,141,59,.07);padding:12px 14px;margin-bottom:14px;color:#3b2f12;font-size:13.5px;line-height:1.6;display:none}
 
     footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
     .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
@@ -147,7 +139,7 @@
       .menuBtn{display:flex;width:48px;height:48px;justify-self:end}
       .brandText .name,.brandText .tag{max-width:55vw}
       h1{font-size:36px;max-width:none}
-      .heroGrid,.sectionHead,.uploadSectionGrid,.consultGrid,.footerGrid,.serviceGrid,.processGrid,.portalGrid,.heroStats{grid-template-columns:1fr}
+      .heroGrid,.sectionHead,.uploadSectionGrid,.consultGrid,.footerGrid,.serviceGrid,.processGrid,.miniGrid,.heroStats{grid-template-columns:1fr}
       .sectionTitle{font-size:30px}
       .hero{padding:34px 0 14px}
       section{padding:42px 0}
@@ -210,44 +202,44 @@
       <div class="container heroGrid">
         <div>
           <div class="kicker"><span class="rule"></span> Confidential Credit Support</div>
-          <h1>A private, structured experience for credit repair and consultation.</h1>
+          <h1>Private credit repair consultation with structured dispute preparation.</h1>
           <p class="lead">
-            This page presents a private, structured experience for credit repair consultation, dispute preparation, and secure client intake.
+            Start with a private consultation, review your documentation, and move into a clear dispute preparation process built around organized intake and professional client support.
           </p>
           <div class="heroActions">
             <a class="btn btnBlack" href="#consult">Start Private Consultation</a>
-            <a class="btn btnGold" href="#upload">View Required Documents</a>
+            <a class="btn btnGold" href="#upload">Upload Documents</a>
           </div>
           <div class="heroStats">
             <div>
               <div class="statNum">Private</div>
-              <div class="statLabel">Client-first consultation experience</div>
+              <div class="statLabel">Confidential client-first intake</div>
             </div>
             <div>
               <div class="statNum">Secure</div>
-              <div class="statLabel">Document upload and intake portal</div>
+              <div class="statLabel">One document upload section</div>
             </div>
             <div>
-              <div class="statNum">Structured</div>
-              <div class="statLabel">Dispute process presentation and support</div>
+              <div class="statNum">Clear</div>
+              <div class="statLabel">Structured dispute preparation flow</div>
             </div>
           </div>
         </div>
 
-        <div class="portalCard">
-          <div class="portalHead">
+        <div class="overviewCard">
+          <div class="overviewHead">
             <div>
-              <div class="portalTitleTop">Credit Repair Intake</div>
-              <div class="portalTitle">Private Consultation Overview</div>
+              <div class="overviewTitleTop">Credit Repair Intake</div>
+              <div class="overviewTitle">Private Consultation Overview</div>
             </div>
-            <div class="portalBadge">Confidential</div>
+            <div class="overviewBadge">Confidential</div>
           </div>
-          <div class="portalBody">
-            <div class="uploadBox">
+          <div class="overviewBody">
+            <div class="noteCard">
               <h3>What to expect</h3>
-              <p>Your consultation begins with a review of your credit concerns, available documentation, and dispute priorities so the next steps are clear and organized.</p>
+              <p>Your consultation begins with a review of your credit concerns, current documentation, and dispute priorities so the next steps are clear and organized.</p>
             </div>
-            <div class="portalGrid">
+            <div class="miniGrid">
               <div class="miniCard">
                 <h3>Service focus</h3>
                 <p>Credit repair consultation</p>
@@ -266,11 +258,11 @@
       <div class="container">
         <div class="sectionHead">
           <div>
-            <div class="kicker"><span class="rule"></span> Service Positioning</div>
-            <div class="sectionTitle">Premium credit support positioned like a real advisory service.</div>
+            <div class="kicker"><span class="rule"></span> Service Overview</div>
+            <div class="sectionTitle">Credit repair support built around review, preparation, and guidance.</div>
           </div>
           <p class="sectionText">
-            This page is built to clearly explain the credit repair process, support private client intake, and provide a direct path to consultation and document submission.
+            This page is focused strictly on credit repair and consultation. It explains the service clearly, presents the dispute process, and gives clients one secure place to submit the records needed for review.
           </p>
         </div>
 
@@ -296,10 +288,10 @@
         <div class="sectionHead">
           <div>
             <div class="kicker"><span class="rule"></span> Dispute Process</div>
-            <div class="sectionTitle">How the experience would be presented.</div>
+            <div class="sectionTitle">How the process is presented.</div>
           </div>
           <p class="sectionText">
-            The process is shown as clear, private, and structured from intake through documentation and ongoing support.
+            The process is shown clearly from consultation through documentation and dispute preparation so clients know exactly what comes next.
           </p>
         </div>
 
@@ -311,18 +303,18 @@
           </div>
           <div class="card">
             <div class="stepNo">Step 02</div>
-            <h3>Secure document intake</h3>
-            <p>Private upload of identification, proof of address, credit reports, and supporting records.</p>
+            <h3>Document review</h3>
+            <p>Review the records available for your file and identify missing documentation.</p>
           </div>
           <div class="card">
             <div class="stepNo">Step 03</div>
-            <h3>Dispute strategy</h3>
-            <p>Structured action plan outlining target accounts, documentation needs, and dispute sequencing.</p>
+            <h3>Dispute preparation</h3>
+            <p>Build a structured action plan around target accounts, documentation, and sequencing.</p>
           </div>
           <div class="card">
             <div class="stepNo">Step 04</div>
             <h3>Ongoing support</h3>
-            <p>Progress tracking, bureau responses, and next-step recommendations through a disciplined workflow.</p>
+            <p>Track responses and identify the next recommended steps for your file.</p>
           </div>
         </div>
       </div>
@@ -350,15 +342,15 @@
           </div>
         </div>
 
-        <div class="intakeCard">
-          <div class="intakeHead">
+        <div class="uploadCard">
+          <div class="uploadHead">
             <div>
-              <div class="portalTitleTop">Private Upload</div>
-              <div class="portalTitle">Document Submission</div>
+              <div class="overviewTitleTop">Private Upload</div>
+              <div class="overviewTitle">Document Submission</div>
             </div>
-            <div class="portalTitleTop">One secure section</div>
+            <div class="overviewTitleTop">One secure section</div>
           </div>
-          <div class="intakeBody">
+          <div class="uploadBody">
             <div class="field">
               <label class="label">Full Name</label>
               <input class="input" placeholder="Client name">
@@ -389,19 +381,26 @@
       <div class="container consultGrid">
         <div>
           <div class="kicker"><span class="rule"></span> <span class="goldText">Consultation Request</span></div>
-          <div class="sectionTitle" style="color:#fff;">A premium intake designed to feel private, credible, and organized.</div>
+          <div class="sectionTitle" style="color:#fff;">Request a private credit repair consultation.</div>
           <p class="consultText">
-            This closing section mirrors the elevated presentation used throughout the site while giving clients a direct path to request support.
+            Complete the form below to request a private consultation and begin the intake process.
           </p>
         </div>
 
-        <form class="consultForm">
-          <input class="input" placeholder="Full name">
-          <input class="input" placeholder="Phone number">
-          <input class="input wide" placeholder="Email address">
-          <textarea class="textarea wide" placeholder="Tell us about your credit concerns and goals."></textarea>
-          <button class="btn btnGold wide" type="button" style="background:var(--gold);color:#000;">Request Confidential Review</button>
-        </form>
+        <div>
+          <div id="consultStatus" class="notice"></div>
+
+          <form id="consultForm" class="consultForm" action="https://formspree.io/f/mldqkvrb" method="POST">
+            <input type="hidden" name="_subject" value="New credit repair consultation request — Asani Enterprises">
+            <input type="text" name="_gotcha" style="display:none">
+
+            <input class="input" name="name" placeholder="Full name" required>
+            <input class="input" name="phone" placeholder="Phone number">
+            <input class="input wide" name="email" type="email" placeholder="Email address" required>
+            <textarea class="textarea wide" name="message" placeholder="Tell us about your credit concerns and goals." required></textarea>
+            <button class="btn btnGold wide" id="consultSubmit" type="submit" style="background:var(--gold);color:#000;">Request Confidential Review</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -413,8 +412,10 @@
         <div class="fine">Private support, structured intake, and disciplined client presentation.</div>
       </div>
       <div>
-        1001 S Main St #8227<br>Kalispell, MT 59901<br><br>
-        406-955-3036<br>info@asanienterprises.com
+        1001 S Main St #8227<br>
+        Kalispell, MT 59901<br><br>
+        406-955-3036<br>
+        info@asanienterprises.com
       </div>
     </div>
   </footer>
@@ -450,6 +451,47 @@
       overlay && overlay.addEventListener('click', closeMenu);
       document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
     })();
+
+    (function () {
+      const form = document.getElementById('consultForm');
+      const statusBox = document.getElementById('consultStatus');
+      const submitBtn = document.getElementById('consultSubmit');
+      if (!form || !statusBox || !submitBtn) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        statusBox.style.display = 'block';
+        statusBox.textContent = 'Sending...';
+
+        const oldText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            statusBox.textContent = 'Thank you — your request has been sent. We will respond promptly.';
+            form.reset();
+          } else {
+            statusBox.textContent = 'Unable to send right now. Please call 406-955-3036 or email info@asanienterprises.com.';
+          }
+        } catch (err) {
+          statusBox.textContent = 'Network error. Please try again or contact us directly.';
+        } finally {
+          submitBtn.textContent = oldText;
+          submitBtn.disabled = false;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
+``
