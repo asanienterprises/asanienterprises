@@ -21,7 +21,6 @@
       --serif:Georgia,"Times New Roman",serif;
       --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:var(--sans);color:var(--black);background:var(--white);overflow-x:hidden}
@@ -111,30 +110,44 @@
     .uploadCard{border:1px solid var(--line);background:#fff;box-shadow:0 18px 48px rgba(0,0,0,.05)}
     .uploadHead{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
     .uploadBody{padding:22px}
-    .label{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray2);margin-bottom:8px}
-    .input,.textarea,.fileInput{
-      width:100%;
-      border:1px solid #d9d9d9;
-      padding:13px 14px;
+    .uploadPlaceholder{
+      border:2px dashed #d7d7d7;
+      background:#fafafa;
+      padding:28px 18px;
+      text-align:center;
+      color:var(--gray);
       font-size:14px;
-      font-family:var(--sans);
-      outline:none;
-      background:#fff;
+      line-height:1.8;
     }
-    .input:focus,.textarea:focus,.fileInput:focus{border-color:rgba(176,141,59,.65)}
-    .textarea{min-height:120px;resize:vertical}
-    .field{margin-bottom:16px}
 
     .consultSection{background:#0a0a0a;color:#fff;border-top:none}
     .consultGrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:start}
     .consultText{color:#d0d0d0;line-height:1.9;font-size:15px;margin:18px 0 0}
     .consultForm{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .consultForm .input,.consultForm .textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.18);color:#fff}
-    .consultForm .input::placeholder,.consultForm .textarea::placeholder{color:#a7a7a7}
+    .input,.textarea{
+      width:100%;
+      border:1px solid rgba(255,255,255,.18);
+      padding:13px 14px;
+      font-size:14px;
+      font-family:var(--sans);
+      outline:none;
+      background:rgba(255,255,255,.04);
+      color:#fff;
+    }
+    .input::placeholder,.textarea::placeholder{color:#a7a7a7}
+    .textarea{min-height:120px;resize:vertical}
     .consultForm .wide{grid-column:1 / -1}
     .goldText{color:var(--gold)}
-    .notice{border:1px solid rgba(176,141,59,.35);background:rgba(176,141,59,.07);padding:12px 14px;margin-bottom:14px;color:#3b2f12;font-size:13.5px;line-height:1.6;display:none}
-    .consultNotice{border:1px solid rgba(176,141,59,.35);background:rgba(176,141,59,.07);padding:12px 14px;margin-bottom:14px;color:#cdb37a;font-size:13.5px;line-height:1.6;display:none}
+    .consultNotice{
+      border:1px solid rgba(176,141,59,.35);
+      background:rgba(176,141,59,.07);
+      padding:12px 14px;
+      margin-bottom:14px;
+      color:#cdb37a;
+      font-size:13.5px;
+      line-height:1.6;
+      display:none;
+    }
 
     footer{border-top:1px solid var(--line);padding:44px 0 64px;color:var(--gray);font-size:13px}
     .footerGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
@@ -358,53 +371,22 @@
           </div>
         </div>
 
-        <div>
-          <div id="uploadStatus" class="notice"></div>
-
-          <form id="uploadForm" class="uploadCard" action="https://formspree.io/f/mldqkvrb" method="POST" enctype="multipart/form-data">
-            <div class="uploadHead">
-              <div>
-                <div class="overviewTitleTop">Secure Upload</div>
-                <div class="overviewTitle">Private Document Submission</div>
-              </div>
-              <div class="overviewTitleTop">Protected intake</div>
+        <div class="uploadCard">
+          <div class="uploadHead">
+            <div>
+              <div class="overviewTitleTop">Secure Upload</div>
+              <div class="overviewTitle">Private Document Submission</div>
             </div>
-
-            <div class="uploadBody">
-              <input type="hidden" name="_subject" value="New document upload — Credit Repair | Asani Enterprises">
-              <input type="text" name="_gotcha" style="display:none">
-
-              <div class="field">
-                <label class="label" for="upload-name">Full Name</label>
-                <input class="input" id="upload-name" name="name" placeholder="Client name" required>
+            <div class="overviewTitleTop">Protected intake</div>
+          </div>
+          <div class="uploadBody">
+            <div class="uploadPlaceholder">
+              <strong>Secure upload portal goes here</strong>
+              <div style="margin-top:8px;">
+                Replace this box with your Zoho Forms embed code to enable real secure document uploads.
               </div>
-
-              <div class="field">
-                <label class="label" for="upload-email">Email Address</label>
-                <input class="input" id="upload-email" name="email" type="email" placeholder="client@email.com" required>
-              </div>
-
-              <div class="field">
-                <label class="label" for="upload-phone">Phone Number</label>
-                <input class="input" id="upload-phone" name="phone" placeholder="Optional">
-              </div>
-
-              <div class="field">
-                <label class="label" for="upload-files">Upload Documents</label>
-                <input class="fileInput" id="upload-files" name="documents" type="file" multiple required>
-                <div style="margin-top:8px;color:var(--gray);font-size:12px;line-height:1.7;">
-                  Upload identification, credit reports, and supporting records through one secure intake area.
-                </div>
-              </div>
-
-              <div class="field">
-                <label class="label" for="upload-notes">Notes</label>
-                <textarea class="textarea" id="upload-notes" name="message" placeholder="Add any relevant notes about your credit concerns, disputed items, or supporting documentation."></textarea>
-              </div>
-
-              <button class="btn btnBlack" id="uploadSubmit" type="submit" style="width:100%;">Submit Securely</button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>
@@ -514,46 +496,6 @@
             form.reset();
           } else {
             statusBox.textContent = 'Unable to send right now. Please call 406-955-3036 or email info@asanienterprises.com.';
-          }
-        } catch (err) {
-          statusBox.textContent = 'Network error. Please try again or contact us directly.';
-        } finally {
-          submitBtn.textContent = oldText;
-          submitBtn.disabled = false;
-        }
-      });
-    })();
-
-    (function () {
-      const form = document.getElementById('uploadForm');
-      const statusBox = document.getElementById('uploadStatus');
-      const submitBtn = document.getElementById('uploadSubmit');
-      if (!form || !statusBox || !submitBtn) return;
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        statusBox.style.display = 'block';
-        statusBox.textContent = 'Uploading...';
-
-        const oldText = submitBtn.textContent;
-        submitBtn.textContent = 'Uploading...';
-        submitBtn.disabled = true;
-
-        try {
-          const formData = new FormData(form);
-
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (res.ok) {
-            statusBox.textContent = 'Thank you — your documents have been submitted successfully. We will review your file and follow up promptly.';
-            form.reset();
-          } else {
-            statusBox.textContent = 'Unable to upload right now. Please try again or contact us directly at 406-955-3036.';
           }
         } catch (err) {
           statusBox.textContent = 'Network error. Please try again or contact us directly.';
