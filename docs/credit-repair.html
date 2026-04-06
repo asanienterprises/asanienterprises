@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,13 +12,13 @@
   <style>
     :root{
       --white:#ffffff;
-      --black:#0a0a0a;
-      --gray:#5f5f5f;
-      --gray2:#7a7a7a;
-      --line:#e7e7e7;
+      --black:#0b0b0b;
+      --text:#1a1a1a;
+      --muted:#666666;
+      --line:#e9e9e9;
       --gold:#b08d3b;
-      --gold-soft:rgba(176,141,59,.08);
-      --container:1180px;
+      --soft:#faf8f3;
+      --container:1120px;
       --serif:Georgia,"Times New Roman",serif;
       --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     }
@@ -28,13 +28,13 @@
     body{
       margin:0;
       font-family:var(--sans);
-      color:var(--black);
+      color:var(--text);
       background:var(--white);
       overflow-x:hidden;
     }
 
     a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
+    img{display:block;max-width:100%}
     .container{width:min(var(--container),calc(100% - 48px));margin:auto}
 
     header{
@@ -53,7 +53,7 @@
       padding:18px 0;
     }
 
-    .brandWrap{
+    .brand{
       display:flex;
       align-items:center;
       gap:12px;
@@ -66,20 +66,20 @@
       border:1px solid var(--line);
       display:grid;
       place-items:center;
-      background:#fff;
       flex:0 0 auto;
+      background:#fff;
     }
 
     .brandText{
-      line-height:1.05;
       min-width:0;
+      line-height:1.05;
     }
 
     .brandText .name{
+      font-size:12px;
       font-weight:800;
       letter-spacing:.14em;
       text-transform:uppercase;
-      font-size:12.5px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -88,59 +88,49 @@
     .brandText .tag{
       margin-top:5px;
       font-size:12px;
-      color:var(--gray);
+      color:var(--muted);
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
-    .nav-links{
+    .navLinks{
       display:flex;
       gap:26px;
       align-items:center;
       font-size:14px;
-      color:var(--gray);
+      color:var(--muted);
       white-space:nowrap;
     }
 
-    .nav-links a:hover{color:var(--black)}
-    .nav-links a.active{
+    .navLinks a.active{
       color:var(--black);
       border-bottom:2px solid var(--gold);
       padding-bottom:6px;
     }
 
-    .nav-cta{
+    .navCta{
       display:flex;
-      gap:10px;
       align-items:center;
+      gap:10px;
       flex:0 0 auto;
     }
 
     .btn{
+      display:inline-block;
       border:1px solid var(--black);
       background:#fff;
       padding:12px 16px;
       font-size:13px;
       letter-spacing:.02em;
-      cursor:pointer;
-      display:inline-block;
       transition:.2s ease;
+      cursor:pointer;
     }
 
     .btn:hover{background:#fafafa}
-    .btnGold{
-      border-color:var(--gold);
-      box-shadow:inset 0 0 0 1px rgba(176,141,59,.15);
-    }
-    .btnBlack{
-      background:var(--black);
-      color:#fff;
-    }
-    .btnBlack:hover{
-      background:var(--black);
-      opacity:.92;
-    }
+    .btnGold{border-color:var(--gold)}
+    .btnBlack{background:var(--black);color:#fff}
+    .btnBlack:hover{background:var(--black);opacity:.93}
 
     .menuBtn{
       display:none;
@@ -148,9 +138,9 @@
       height:44px;
       border:1px solid var(--line);
       background:#fff;
-      cursor:pointer;
       align-items:center;
       justify-content:center;
+      cursor:pointer;
     }
 
     .menuIcon{
@@ -174,7 +164,7 @@
     .mobileOverlay{
       position:fixed;
       inset:0;
-      background:rgba(10,10,10,.45);
+      background:rgba(0,0,0,.42);
       display:none;
       z-index:999;
     }
@@ -200,16 +190,15 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
       padding:18px;
       border-bottom:1px solid var(--line);
     }
 
     .drawerTitle{
+      font-size:12px;
       font-weight:800;
       letter-spacing:.14em;
       text-transform:uppercase;
-      font-size:12px;
     }
 
     .drawerClose{
@@ -225,7 +214,7 @@
       display:block;
       padding:14px 0;
       border-bottom:1px solid var(--line);
-      color:var(--gray);
+      color:var(--muted);
       font-size:14px;
     }
 
@@ -249,14 +238,11 @@
     }
 
     .hero{
-      padding:68px 0 34px;
+      padding:78px 0 56px;
     }
 
-    .heroGrid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:30px;
-      align-items:start;
+    .heroInner{
+      max-width:760px;
     }
 
     .kicker{
@@ -266,7 +252,7 @@
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
-      color:var(--gray2);
+      color:var(--muted);
     }
 
     .kicker .rule{
@@ -277,19 +263,20 @@
 
     h1{
       font-family:var(--serif);
-      font-size:56px;
+      font-size:58px;
       line-height:1.02;
       letter-spacing:-.03em;
       font-weight:600;
-      margin:20px 0 18px;
-      max-width:12ch;
+      margin:22px 0 18px;
+      max-width:11ch;
+      color:var(--black);
     }
 
     .lead{
-      color:var(--gray);
-      font-size:16px;
-      line-height:1.95;
       max-width:62ch;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.9;
       margin:0;
     }
 
@@ -300,180 +287,94 @@
       margin-top:30px;
     }
 
-    .heroStats{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      margin-top:34px;
-      padding-top:26px;
-      border-top:1px solid var(--line);
-    }
-
-    .statNum{
-      font-family:var(--serif);
-      font-size:26px;
-    }
-
-    .statLabel{
-      margin-top:5px;
-      color:var(--gray);
-      font-size:13px;
-      line-height:1.65;
-    }
-
-    .overviewCard{
-      border:1px solid var(--line);
-      background:#fff;
-      box-shadow:0 20px 54px rgba(0,0,0,.05);
-    }
-
-    .overviewHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:20px 22px;
-      border-bottom:1px solid var(--line);
-    }
-
-    .overviewTitleTop{
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--gray2);
-    }
-
-    .overviewTitle{
-      margin-top:6px;
-      font-size:18px;
-      font-weight:600;
-    }
-
-    .overviewBadge{
-      font-size:11px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--gold);
-    }
-
-    .overviewBody{
-      padding:22px;
-      display:grid;
-      gap:16px;
-    }
-
-    .noteCard,
-    .miniCard,
-    .card{
-      border:1px solid var(--line);
-      background:#fff;
-      padding:22px;
-    }
-
-    .noteCard h3,
-    .miniCard h3,
-    .card h3{
-      margin:0;
-      font-size:16px;
-    }
-
-    .noteCard p,
-    .miniCard p,
-    .card p{
-      margin:10px 0 0;
-      color:var(--gray);
-      font-size:14.5px;
-      line-height:1.85;
-    }
-
-    .miniGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
     section{
-      padding:66px 0;
+      padding:52px 0;
       border-top:1px solid var(--line);
-    }
-
-    .sectionHead{
-      display:grid;
-      grid-template-columns:.95fr 1.05fr;
-      gap:24px;
-      align-items:start;
     }
 
     .sectionTitle{
       font-family:var(--serif);
-      font-size:40px;
-      line-height:1.1;
-      margin:10px 0 0;
+      font-size:34px;
+      line-height:1.12;
       letter-spacing:-.02em;
+      margin:0 0 14px;
+      color:var(--black);
     }
 
     .sectionText{
-      color:var(--gray);
+      max-width:68ch;
+      color:var(--muted);
       font-size:15px;
-      line-height:1.95;
+      line-height:1.9;
       margin:0;
     }
 
-    .serviceGrid{
-      margin-top:28px;
+    .grid3{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
-    }
-
-    .processGrid{
       margin-top:28px;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
     }
 
-    .stepNo{
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--gold);
-      margin-bottom:10px;
-    }
-
-    .uploadSectionGrid{
+    .grid2{
       display:grid;
-      grid-template-columns:.95fr 1.05fr;
-      gap:28px;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
       align-items:start;
     }
 
-    .docPanel{
+    .card{
       border:1px solid var(--line);
-      background:#fafafa;
       padding:22px;
-      margin-top:26px;
+      background:#fff;
     }
 
-    .docPanel h3{
+    .card h3{
+      margin:0 0 10px;
+      font-size:16px;
+      font-weight:600;
+      color:var(--black);
+    }
+
+    .card p{
       margin:0;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.85;
+    }
+
+    .uploadCard{
+      border:1px solid var(--line);
+      background:var(--soft);
+      padding:24px;
+    }
+
+    .uploadCard h3{
+      margin:0 0 10px;
       font-size:16px;
     }
 
+    .uploadCard p{
+      margin:0;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.85;
+    }
+
     .docList{
-      margin:14px 0 0;
+      margin:18px 0 0;
       padding:0;
       list-style:none;
     }
 
     .docList li{
+      margin:10px 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
       display:flex;
       gap:10px;
       align-items:flex-start;
-      color:var(--gray);
-      font-size:14px;
-      line-height:1.85;
-      margin:10px 0;
     }
 
     .docList li::before{
@@ -486,66 +387,46 @@
       flex:0 0 auto;
     }
 
-    .uploadCard{
-      border:1px solid var(--line);
-      background:#fff;
-      box-shadow:0 20px 54px rgba(0,0,0,.05);
-    }
-
-    .uploadHead{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding:20px 22px;
-      border-bottom:1px solid var(--line);
-    }
-
-    .uploadBody{
-      padding:22px;
-    }
-
     .uploadPlaceholder{
-      border:2px dashed #d7d7d7;
-      background:#fafafa;
-      padding:34px 20px;
+      border:1px dashed #cfcfcf;
+      background:#fff;
+      padding:28px;
+      margin-top:18px;
       text-align:center;
-      color:var(--gray);
+      color:var(--muted);
       font-size:14px;
-      line-height:1.9;
+      line-height:1.8;
     }
 
-    .consultSection{
-      background:#0a0a0a;
+    .consultWrap{
+      background:#0b0b0b;
+      padding:36px;
       color:#fff;
-      border-top:none;
     }
 
-    .consultGrid{
-      display:grid;
-      grid-template-columns:.95fr 1.05fr;
-      gap:28px;
-      align-items:start;
+    .consultWrap .sectionTitle{
+      color:#fff;
+      margin-bottom:12px;
     }
 
-    .consultText{
-      color:#d0d0d0;
-      font-size:15px;
-      line-height:1.95;
-      margin:18px 0 0;
+    .consultWrap .sectionText{
+      color:#cccccc;
+      max-width:none;
     }
 
     .consultNotice{
       border:1px solid rgba(176,141,59,.35);
-      background:rgba(176,141,59,.07);
+      background:rgba(176,141,59,.08);
+      color:#d5bc83;
       padding:12px 14px;
-      margin-bottom:14px;
-      color:#d3b97b;
+      margin:18px 0 0;
       font-size:13.5px;
       line-height:1.6;
       display:none;
     }
 
     .consultForm{
+      margin-top:22px;
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
@@ -553,17 +434,17 @@
 
     .input,.textarea{
       width:100%;
-      border:1px solid rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.04);
+      color:#fff;
       padding:13px 14px;
       font-size:14px;
       font-family:var(--sans);
       outline:none;
-      background:rgba(255,255,255,.04);
-      color:#fff;
     }
 
     .input::placeholder,.textarea::placeholder{
-      color:#a7a7a7;
+      color:#a8a8a8;
     }
 
     .textarea{
@@ -571,14 +452,12 @@
       resize:vertical;
     }
 
-    .wide{
-      grid-column:1 / -1;
-    }
+    .wide{grid-column:1 / -1}
 
     footer{
       border-top:1px solid var(--line);
       padding:44px 0 64px;
-      color:var(--gray);
+      color:var(--muted);
       font-size:13px;
     }
 
@@ -595,7 +474,7 @@
     }
 
     @media(max-width:980px){
-      .nav-links{display:none}
+      .navLinks{display:none}
       .nav{
         display:grid;
         grid-template-columns:1fr auto;
@@ -603,7 +482,7 @@
         gap:12px;
         padding:12px 0;
       }
-      .nav-cta a.btn{display:none}
+      .navCta a.btn{display:none}
       .menuBtn{
         display:flex;
         width:48px;
@@ -612,33 +491,31 @@
       }
       .brandText .name,.brandText .tag{max-width:55vw}
       h1{
-        font-size:38px;
+        font-size:40px;
         max-width:none;
       }
-      .heroGrid,
-      .sectionHead,
-      .uploadSectionGrid,
-      .consultGrid,
-      .footerGrid,
-      .serviceGrid,
-      .processGrid,
-      .miniGrid,
-      .heroStats{
+      .grid3,.grid2,.footerGrid,.consultForm{
         grid-template-columns:1fr;
       }
-      .sectionTitle{font-size:31px}
-      .hero{padding:36px 0 14px}
-      section{padding:44px 0}
-      .consultForm{grid-template-columns:1fr}
+      .hero{
+        padding:42px 0 30px;
+      }
+      .sectionTitle{
+        font-size:29px;
+      }
+      .consultWrap{
+        padding:24px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="container nav">
       <a class="brandWrap" href="index.html" aria-label="Asani Enterprises home">
-        <div class="logoBox" aria-hidden="true">
-          <img src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises" style="width:32px;height:32px;object-fit:contain;display:block;">
+        <div class="logoBox">
+          <img src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises" style="width:32px;height:32px;object-fit:contain;">
         </div>
         <div class="brandText">
           <div class="name">Asani Enterprises</div>
@@ -646,7 +523,7 @@
         </div>
       </a>
 
-      <nav class="nav-links" aria-label="Primary navigation">
+      <nav class="navLinks" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="credit-repair.html" class="active">Credit Repair</a>
@@ -654,11 +531,11 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <div class="nav-cta">
+      <div class="navCta">
         <a class="btn" href="tel:14069553036">Call</a>
         <a class="btn btnGold" href="#consult">Request a consult</a>
-        <button class="menuBtn" id="openMenu" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
-          <div class="menuIcon" aria-hidden="true"><span></span><span></span><span></span></div>
+        <button class="menuBtn" id="openMenu" aria-label="Open menu">
+          <div class="menuIcon"><span></span><span></span><span></span></div>
         </button>
       </div>
     </div>
@@ -670,7 +547,7 @@
       <div class="drawerTitle">Menu</div>
       <button class="drawerClose" id="closeMenu" aria-label="Close menu">✕</button>
     </div>
-    <nav class="drawerNav" aria-label="Mobile navigation">
+    <nav class="drawerNav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="credit-repair.html" class="active">Credit Repair</a>
@@ -685,186 +562,102 @@
 
   <main>
     <section class="hero">
-      <div class="container heroGrid">
-        <div>
-          <div class="kicker"><span class="rule"></span> Confidential Credit Support</div>
-          <h1>Private credit consulting and credit repair with a structured, client-first process.</h1>
-          <p class="lead">
-            Asani Enterprises provides private credit consulting and credit repair support for clients who need a clear review of their credit profile, organized dispute preparation, and a secure way to submit sensitive documents.
-          </p>
-          <div class="heroActions">
-            <a class="btn btnBlack" href="#consult">Request Consultation</a>
-            <a class="btn btnGold" href="#upload">Upload Documents</a>
-          </div>
-          <div class="heroStats">
-            <div>
-              <div class="statNum">Private</div>
-              <div class="statLabel">Confidential, client-first consultation process</div>
-            </div>
-            <div>
-              <div class="statNum">Secure</div>
-              <div class="statLabel">Protected document intake for sensitive records</div>
-            </div>
-            <div>
-              <div class="statNum">Clear</div>
-              <div class="statLabel">Defined review, repair, and dispute support process</div>
-            </div>
-          </div>
+      <div class="container heroInner">
+        <div class="kicker"><span class="rule"></span> Confidential Credit Support</div>
+        <h1>Private credit consulting and credit repair.</h1>
+        <p class="lead">
+          Asani Enterprises provides private credit consulting and credit repair for clients who need a clear review process, organized dispute preparation, and a secure way to submit sensitive documents.
+        </p>
+        <div class="heroActions">
+          <a class="btn btnBlack" href="#consult">Request Consultation</a>
+          <a class="btn btnGold" href="#upload">Upload Documents</a>
         </div>
+      </div>
+    </section>
 
-        <div class="overviewCard">
-          <div class="overviewHead">
-            <div>
-              <div class="overviewTitleTop">Credit Consulting Overview</div>
-              <div class="overviewTitle">Private Credit Review</div>
-            </div>
-            <div class="overviewBadge">Client Intake</div>
+    <section>
+      <div class="container">
+        <h2 class="sectionTitle">Overview</h2>
+        <p class="sectionText">
+          Each file begins with a private review of your credit profile, reporting concerns, and supporting records. From there, the documentation is organized, the issues requiring attention are identified, and the next steps for dispute preparation are clearly defined.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="sectionTitle">Services</h2>
+        <div class="grid3">
+          <div class="card">
+            <h3>Credit Consultation</h3>
+            <p>Private review of your credit profile, reporting concerns, and available documentation.</p>
           </div>
-          <div class="overviewBody">
-            <div class="noteCard">
-              <h3>What this service includes</h3>
-              <p>Your consultation begins with a private review of your credit concerns, negative items, reporting issues, and current documentation. From there, the file is organized around the accounts, records, and supporting details that matter most for dispute preparation and credit repair planning.</p>
-            </div>
-            <div class="miniGrid">
-              <div class="miniCard">
-                <h3>Credit consultation</h3>
-                <p>Review your credit profile, identify concerns, and determine which issues should be addressed first.</p>
-              </div>
-              <div class="miniCard">
-                <h3>Repair planning</h3>
-                <p>Organize the documentation, disputed items, and supporting records needed for a well-prepared file.</p>
-              </div>
-              <div class="miniCard">
-                <h3>Dispute preparation</h3>
-                <p>Structure the file so disputed items are supported by the strongest available records and documentation.</p>
-              </div>
-              <div class="miniCard">
-                <h3>Ongoing guidance</h3>
-                <p>Maintain a clear process for follow-up, review, and next steps as responses are received.</p>
-              </div>
-            </div>
+          <div class="card">
+            <h3>Credit Repair Support</h3>
+            <p>Guidance on dispute preparation, documentation review, and repair strategy.</p>
+          </div>
+          <div class="card">
+            <h3>Ongoing Review</h3>
+            <p>Continued support as responses are received and next steps are evaluated.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services">
+    <section>
       <div class="container">
-        <div class="sectionHead">
-          <div>
-            <div class="kicker"><span class="rule"></span> Service Overview</div>
-            <div class="sectionTitle">Credit consulting and repair support built around review, preparation, and guidance.</div>
-          </div>
-          <p class="sectionText">
-            This service is focused on credit consulting and credit repair. It explains the process clearly, outlines the review and dispute preparation workflow, and provides one secure place to submit the records needed for the file.
-          </p>
-        </div>
-
-        <div class="serviceGrid">
+        <h2 class="sectionTitle">Process</h2>
+        <div class="grid3">
           <div class="card">
-            <h3>Credit consultation</h3>
-            <p>Private review of your credit profile, reporting concerns, and the documentation currently available for the file.</p>
-          </div>
-          <div class="card">
-            <h3>Credit repair support</h3>
-            <p>Guidance around dispute preparation, documentation review, and the structure of the repair process.</p>
-          </div>
-          <div class="card">
-            <h3>Ongoing review</h3>
-            <p>Continued support as responses are received and the next actions are evaluated.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process" style="background:#fafafa;">
-      <div class="container">
-        <div class="sectionHead">
-          <div>
-            <div class="kicker"><span class="rule"></span> Process</div>
-            <div class="sectionTitle">How the credit repair process works.</div>
-          </div>
-          <p class="sectionText">
-            Clients are guided from consultation through document review, dispute preparation, and ongoing file support with a process that is clear, private, and easy to follow.
-          </p>
-        </div>
-
-        <div class="processGrid">
-          <div class="card">
-            <div class="stepNo">Step 01</div>
             <h3>Consultation</h3>
-            <p>Review credit concerns, current reporting issues, and the objectives for the file.</p>
+            <p>Review your credit concerns and objectives.</p>
           </div>
           <div class="card">
-            <div class="stepNo">Step 02</div>
-            <h3>Document review</h3>
-            <p>Organize the records available and identify what is needed to support the file properly.</p>
+            <h3>Document Review</h3>
+            <p>Organize the records needed for the file.</p>
           </div>
           <div class="card">
-            <div class="stepNo">Step 03</div>
-            <h3>Dispute preparation</h3>
-            <p>Prepare the structure, documentation, and supporting details required for the dispute process.</p>
-          </div>
-          <div class="card">
-            <div class="stepNo">Step 04</div>
-            <h3>Ongoing support</h3>
-            <p>Review responses, track updates, and determine the next recommended actions.</p>
+            <h3>Dispute Preparation</h3>
+            <p>Prepare documentation and the next steps for the dispute process.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="upload">
-      <div class="container uploadSectionGrid">
+      <div class="container grid2">
         <div>
-          <div class="kicker"><span class="rule"></span> Secure Upload</div>
-          <div class="sectionTitle">Securely upload the documents needed for your credit repair file.</div>
-          <p class="sectionText" style="margin-top:18px;max-width:65ch;">
-            Use this section to submit the documents needed for credit consultation and dispute preparation. Keeping everything in one protected intake flow helps ensure the file is organized from the start.
+          <h2 class="sectionTitle">Secure Document Upload</h2>
+          <p class="sectionText">
+            Submit the documents required for your credit repair file through one protected intake section.
           </p>
 
-          <div class="docPanel">
-            <h3>Typical documents requested</h3>
-            <ul class="docList">
-              <li>Government-issued identification</li>
-              <li>Proof of address</li>
-              <li>Credit reports</li>
-              <li>Supporting correspondence</li>
-            </ul>
-          </div>
+          <ul class="docList">
+            <li>Government issued identification</li>
+            <li>Proof of address</li>
+            <li>Credit reports</li>
+            <li>Supporting correspondence</li>
+          </ul>
         </div>
 
         <div class="uploadCard">
-          <div class="uploadHead">
-            <div>
-              <div class="overviewTitleTop">Secure Upload</div>
-              <div class="overviewTitle">Private Document Submission</div>
-            </div>
-            <div class="overviewTitleTop">Protected intake</div>
-          </div>
-          <div class="uploadBody">
-            <div class="uploadPlaceholder">
-              <strong>Secure upload portal goes here</strong>
-              <div style="margin-top:8px;">
-                Replace this box with your Zoho Forms embed code to enable secure document uploads.
-              </div>
-            </div>
+          <h3>Private Document Submission</h3>
+          <p>Replace this area with your secure upload form or Zoho Forms embed.</p>
+          <div class="uploadPlaceholder">
+            Secure upload portal goes here
           </div>
         </div>
       </div>
     </section>
 
-    <section id="consult" class="consultSection">
-      <div class="container consultGrid">
-        <div>
-          <div class="kicker"><span class="rule"></span> <span style="color:#b08d3b;">Consultation Request</span></div>
-          <div class="sectionTitle" style="color:#fff;">Request a private credit consultation.</div>
-          <p class="consultText">
-            Complete the form below to begin the review process for your credit file.
+    <section id="consult">
+      <div class="container">
+        <div class="consultWrap">
+          <h2 class="sectionTitle">Request a Private Consultation</h2>
+          <p class="sectionText">
+            Complete the form below to begin your credit review.
           </p>
-        </div>
 
-        <div>
           <div id="consultStatus" class="consultNotice"></div>
 
           <form id="consultForm" class="consultForm" action="https://formspree.io/f/mldqkvrb" method="POST">
@@ -873,8 +666,8 @@
 
             <input class="input" name="name" placeholder="Full name" required>
             <input class="input" name="phone" placeholder="Phone number">
-            <input class="input wide" name="email" type="email" placeholder="Email address" required>
-            <textarea class="textarea wide" name="message" placeholder="Tell us about your credit concerns and what you would like reviewed." required></textarea>
+            <input class="input wide" type="email" name="email" placeholder="Email address" required>
+            <textarea class="textarea wide" name="message" placeholder="Tell us what you would like reviewed." required></textarea>
             <button class="btn btnGold wide" id="consultSubmit" type="submit" style="background:#b08d3b;color:#000;">Submit Request</button>
           </form>
         </div>
@@ -886,7 +679,7 @@
     <div class="container footerGrid">
       <div>
         © <span id="year"></span> Asani Enterprises — Credit Consulting & Repair
-        <div class="fine">Private support, structured intake, and disciplined client presentation.</div>
+        <div class="fine">Private support and structured client intake.</div>
       </div>
       <div>
         1001 S Main St #8227<br>
@@ -910,16 +703,12 @@
         overlay.hidden = false;
         overlay.classList.add('open');
         drawer.classList.add('open');
-        drawer.setAttribute('aria-hidden','false');
-        openBtn.setAttribute('aria-expanded','true');
         document.body.style.overflow='hidden';
       }
 
       function closeMenu(){
         drawer.classList.remove('open');
         overlay.classList.remove('open');
-        drawer.setAttribute('aria-hidden','true');
-        openBtn.setAttribute('aria-expanded','false');
         document.body.style.overflow='';
         setTimeout(()=>{ overlay.hidden = true; }, 180);
       }
@@ -956,7 +745,7 @@
           });
 
           if (res.ok) {
-            statusBox.textContent = 'Thank you — your consultation request has been received. A member of our team will follow up promptly.';
+            statusBox.textContent = 'Thank you — your request has been received. We will follow up promptly.';
             form.reset();
           } else {
             statusBox.textContent = 'Unable to send right now. Please call 406-955-3036 or email info@asanienterprises.com.';
