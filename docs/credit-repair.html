@@ -5,119 +5,285 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Asani Enterprises | Credit Consulting</title>
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0b;color:#f4f4f4}
-header{display:flex;justify-content:space-between;align-items:center;padding:22px 8%;background:#000;border-bottom:1px solid #222}
-.logo{font-size:22px;font-weight:700;letter-spacing:2px}
-nav a{color:#f4f4f4;text-decoration:none;margin-left:28px;font-size:14px}
-.hero{height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c');background-size:cover;background-position:center}
-.hero h1{font-size:46px;margin:0 0 12px}
-.hero p{max-width:650px;opacity:.85}
-.btn{margin-top:28px;padding:14px 34px;border:1px solid #c9a961;color:#c9a961;text-decoration:none;font-weight:600}
-section{padding:80px 10%}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
-.card{background:#141414;border:1px solid #222;padding:28px}
-.card h3{color:#c9a961;margin-top:0}
-.portal{background:#111;text-align:center}
-.portal iframe{width:100%;height:760px;border:0;border-radius:10px}
-.terms{margin-top:28px;text-align:left;font-size:14px;line-height:1.6;background:#141414;padding:28px;border:1px solid #222}
-.contact{background:#0f0f0f}
-footer{padding:30px;text-align:center;background:#000;font-size:14px;opacity:.7}
-@media(max-width:768px){.hero h1{font-size:34px}}
+:root{
+  --bg:#070707;
+  --panel:#101010;
+  --panel-2:#151515;
+  --text:#f6f1e8;
+  --muted:#b5aa97;
+  --gold:#c9a45f;
+  --gold-soft:#e2c992;
+  --line:rgba(201,164,95,.24);
+  --shadow:0 24px 70px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:radial-gradient(circle at top right,rgba(201,164,95,.10),transparent 20%),linear-gradient(180deg,#050505 0%,#0a0a0a 45%,#070707 100%);color:var(--text);line-height:1.55}
+a{text-decoration:none;color:inherit}
+.container{width:min(1220px,calc(100% - 40px));margin:0 auto}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(7,7,7,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-badge{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold-soft);font-size:14px;letter-spacing:.18em}
+.brand-text{display:flex;flex-direction:column}
+.brand-title{font-size:1rem;letter-spacing:.34em;font-weight:700}
+.brand-sub{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.nav-links a{font-size:.93rem;color:rgba(255,255,255,.88)}
+.nav-links a:hover{color:var(--gold-soft)}
+.nav-cta{padding:12px 18px;border-radius:999px;border:1px solid rgba(201,164,95,.45);color:var(--gold-soft)}
+.hero{padding:70px 0 40px}
+.hero-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}
+.hero-main,.hero-side,.section-card,.portal-text,.contact-wrap{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.05);box-shadow:var(--shadow)}
+.hero-main{border-radius:32px;padding:58px;position:relative;overflow:hidden;min-height:620px;display:flex;flex-direction:column;justify-content:space-between}
+.hero-main:before{content:"";position:absolute;right:-80px;top:-40px;width:260px;height:260px;background:radial-gradient(circle,rgba(201,164,95,.18),transparent 68%)}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:999px;border:1px solid rgba(201,164,95,.24);background:rgba(201,164,95,.06);color:var(--gold-soft);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;width:max-content}
+.hero-main h1{font-size:clamp(3rem,6vw,5.4rem);line-height:.94;letter-spacing:-.05em;margin:18px 0 0;max-width:10ch}
+.hero-main p{max-width:620px;margin:22px 0 0;color:rgba(255,255,255,.84);font-size:1.06rem}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;border-radius:999px;font-weight:600;transition:.25s ease}
+.button-primary{background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#111}
+.button-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.02);color:var(--text)}
+.button:hover{transform:translateY(-1px)}
+.hero-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.mini-card{padding:18px;border-radius:20px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+.mini-card strong{display:block;color:var(--gold-soft);font-size:1rem;margin-bottom:6px}
+.mini-card span{color:var(--muted);font-size:.92rem}
+.hero-side{border-radius:32px;padding:28px;display:grid;gap:18px}
+.side-panel{border-radius:24px;padding:30px;background:linear-gradient(180deg,rgba(201,164,95,.08),rgba(201,164,95,.02)),rgba(255,255,255,.02);border:1px solid rgba(201,164,95,.16)}
+.side-panel h2{margin:0 0 12px;font-size:1.6rem;letter-spacing:-.03em}
+.side-panel p{margin:0;color:rgba(255,255,255,.86)}
+.side-list{display:grid;gap:12px;margin-top:22px}
+.side-item{padding:16px 18px;border-radius:18px;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.88)}
+.image-card{border-radius:24px;min-height:220px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01)),url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80');background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden}
+.image-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.58))}
+.image-overlay{position:absolute;left:24px;right:24px;bottom:24px;z-index:2}
+.image-overlay strong{display:block;font-size:1.05rem;color:var(--gold-soft);margin-bottom:8px}
+.image-overlay span{color:rgba(255,255,255,.88);font-size:.95rem}
+section{padding:22px 0 76px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.section-head h2{margin:0;font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.04em}
+.section-head p{margin:0;color:var(--muted);max-width:520px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.section-card{border-radius:26px;padding:28px}
+.eyebrow-num{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+.section-card h3{margin:0 0 12px;font-size:1.34rem;letter-spacing:-.02em}
+.section-card p{margin:0;color:rgba(255,255,255,.84)}
+.portal-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:22px;align-items:stretch}
+.portal-text{border-radius:30px;padding:34px}
+.portal-text h2{margin:0 0 14px;font-size:2rem;letter-spacing:-.04em}
+.portal-text p{margin:0;color:rgba(255,255,255,.84)}
+.portal-points{display:grid;gap:12px;margin-top:22px}
+.portal-point{padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.88)}
+.portal-shell{border-radius:30px;overflow:hidden;border:1px solid rgba(201,164,95,.18);box-shadow:var(--shadow);background:#0d0d0d;min-height:760px}
+.portal-shell iframe{width:100%;height:760px;border:0;display:block}
+.terms{margin-top:18px;padding:30px;border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.06)}
+.terms h3{margin:0 0 16px;font-size:1.3rem;color:var(--gold-soft)}
+.terms p{margin:0 0 14px;color:rgba(255,255,255,.82)}
+.contact-wrap{border-radius:30px;padding:34px;display:grid;grid-template-columns:1fr .9fr;gap:22px}
+.contact-wrap h2{margin:0 0 12px;font-size:2rem;letter-spacing:-.04em}
+.contact-wrap p{margin:0;color:rgba(255,255,255,.84)}
+.contact-list{display:grid;gap:14px;margin-top:24px}
+.contact-item{padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+.contact-item small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;margin-bottom:7px}
+.contact-item span{font-size:1rem;color:var(--text)}
+.contact-side{border-radius:24px;padding:28px;background:linear-gradient(180deg,rgba(201,164,95,.08),rgba(201,164,95,.02)),rgba(255,255,255,.02);border:1px solid rgba(201,164,95,.16);display:flex;align-items:center}
+.contact-side strong{display:block;font-size:1.2rem;color:var(--gold-soft);margin-bottom:10px}
+.contact-side span{color:rgba(255,255,255,.86)}
+footer{padding:0 0 40px}.footer-line{padding-top:22px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+@media(max-width:1100px){.hero-wrap,.portal-layout,.contact-wrap{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.nav{min-height:74px;flex-direction:column;align-items:flex-start;padding:14px 0}.nav-links{gap:14px}.hero{padding-top:34px}.hero-main,.hero-side,.section-card,.portal-text,.contact-wrap,.terms{padding:22px}.hero-bottom,.grid-3{grid-template-columns:1fr}.portal-shell iframe{height:820px}.hero-main{min-height:auto}.hero-main h1{max-width:12ch}}
 </style>
 </head>
 <body>
-
-<header>
-<div class="logo">ASANI ENTERPRISES</div>
-<nav>
-<a href="#services">Services</a>
-<a href="#process">Process</a>
-<a href="#portal">Secure Portal</a>
-<a href="#contact">Contact</a>
-</nav>
+<header class="topbar">
+  <div class="container nav">
+    <a href="#home" class="brand">
+      <div class="brand-badge">AE</div>
+      <div class="brand-text">
+        <span class="brand-title">ASANI</span>
+        <span class="brand-sub">Enterprises</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#portal">Secure Portal</a>
+      <a href="#contact">Contact</a>
+      <a href="#portal" class="nav-cta">Start Here</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-<h1>Credit Consulting<br>Strategic Credit Repair</h1>
-<p>Professional consulting focused on improving the structure accuracy presentation of your credit profile.</p>
-<a class="btn" href="#portal">Begin Secure Submission</a>
-</section>
+<main id="home">
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div class="hero-main">
+        <div>
+          <span class="kicker">Credit consulting</span>
+          <h1>The Asani standard for private credit guidance.</h1>
+          <p>Credit consulting and strategic credit repair delivered through a polished digital experience built for discretion, clarity, and a stronger presentation from the first interaction.</p>
+          <div class="hero-actions">
+            <a href="#portal" class="button button-primary">Secure Client Portal</a>
+            <a href="#services" class="button button-secondary">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <div class="mini-card">
+            <strong>Private</strong>
+            <span>Confidential submission of documents and customer information.</span>
+          </div>
+          <div class="mini-card">
+            <strong>Refined</strong>
+            <span>A premium presentation aligned with the Asani name.</span>
+          </div>
+          <div class="mini-card">
+            <strong>Strategic</strong>
+            <span>Consulting focused on structure, clarity, and next steps.</span>
+          </div>
+        </div>
+      </div>
 
-<section id="services">
-<h2>Services</h2>
-<div class="grid">
+      <div class="hero-side">
+        <div class="side-panel">
+          <h2>Built for a stronger first impression.</h2>
+          <p>Every section is designed to reflect a more elevated brand presence while keeping the experience direct for clients seeking credit repair and credit consulting services.</p>
+          <div class="side-list">
+            <div class="side-item">Professional positioning for credit-focused services</div>
+            <div class="side-item">Clean structure without filler copy or repeated headings</div>
+            <div class="side-item">A secure path for document submission and review</div>
+          </div>
+        </div>
+        <div class="image-card">
+          <div class="image-overlay">
+            <strong>Asani Enterprises</strong>
+            <span>Credit consulting presented with a luxury feel and a modern edge.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Credit Consultation</h3>
-<p>Detailed evaluation of your credit profile with guidance designed to strengthen financial positioning and lending readiness.</p>
-</div>
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Services</span>
+          <h2>Focused and intentional.</h2>
+        </div>
+        <p>Clear service positioning for clients who want professional guidance and a more elevated experience.</p>
+      </div>
+      <div class="grid-3">
+        <div class="section-card">
+          <div class="eyebrow-num">01</div>
+          <h3>Credit consultation</h3>
+          <p>A detailed review of your profile with guidance tailored to improve overall positioning, organization, and financial readiness.</p>
+        </div>
+        <div class="section-card">
+          <div class="eyebrow-num">02</div>
+          <h3>Credit repair strategy</h3>
+          <p>Strategic consulting centered on inaccurate, outdated, or unverifiable reporting and the supporting documentation needed to move correctly.</p>
+        </div>
+        <div class="section-card">
+          <div class="eyebrow-num">03</div>
+          <h3>Business credit guidance</h3>
+          <p>Professional direction for entrepreneurs building stronger credibility, cleaner structure, and better lending presentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Credit Repair Strategy</h3>
-<p>Consulting focused on addressing inaccurate outdated unverifiable reporting while improving overall credit presentation.</p>
-</div>
+  <section id="approach">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Approach</span>
+          <h2>Simple, private, and polished.</h2>
+        </div>
+        <p>A streamlined flow that makes it easy for clients to start while preserving a premium brand image.</p>
+      </div>
+      <div class="grid-3">
+        <div class="section-card">
+          <div class="eyebrow-num">Step 1</div>
+          <h3>Submit securely</h3>
+          <p>Provide your information and supporting documents through the private client portal.</p>
+        </div>
+        <div class="section-card">
+          <div class="eyebrow-num">Step 2</div>
+          <h3>Profile review</h3>
+          <p>Your submission is assessed carefully to identify the most appropriate consulting direction.</p>
+        </div>
+        <div class="section-card">
+          <div class="eyebrow-num">Step 3</div>
+          <h3>Strategic next steps</h3>
+          <p>You receive a clearer framework for how to move forward with stronger credit positioning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Business Credit Guidance</h3>
-<p>Strategic direction for entrepreneurs seeking stronger business credibility funding readiness and financial structure.</p>
-</div>
+  <section id="portal">
+    <div class="container portal-layout">
+      <div>
+        <div class="portal-text">
+          <span class="kicker">Secure portal</span>
+          <h2>Submit your information privately.</h2>
+          <p>This portal is built for clients ready to move forward with credit consulting or credit repair services. It provides a secure way to share documents and customer details without taking away from the overall Asani presentation.</p>
+          <div class="portal-points">
+            <div class="portal-point">Private document and customer information submission</div>
+            <div class="portal-point">Strong visual alignment with the Asani brand</div>
+            <div class="portal-point">Optimized for desktop and mobile access</div>
+          </div>
+        </div>
+        <div class="terms">
+          <h3>Terms and Conditions</h3>
+          <p>By submitting information through this portal you confirm that the information provided is accurate and submitted voluntarily. The services offered by Asani Enterprises consist of credit consulting and credit profile review. Recommendations are based on the information provided by the client.</p>
+          <p>No specific outcomes can be guaranteed. Credit results vary based on individual circumstances, credit bureau reporting, and creditor responses.</p>
+          <p>You authorize Asani Enterprises to review the documentation submitted for the purpose of evaluating your credit profile and determining consulting recommendations.</p>
+          <p>All information submitted is handled confidentially and used solely for consulting purposes. Information will not be sold, shared, or distributed to unauthorized third parties.</p>
+          <p>Clients remain responsible for monitoring credit reports, maintaining financial obligations, and complying with existing credit agreements.</p>
+          <p>By submitting your information you acknowledge that you understand and agree to these terms.</p>
+        </div>
+      </div>
 
-</div>
-</section>
+      <div class="portal-shell">
+        <iframe aria-label="Client Information" frameborder="0" allow="camera;" src="https://forms.zohopublic.com/asanienterprisesorganization1/form/ClientInformation/formperma/A4Xku2sRPX9LbrF8PDf9UJC0D7uHCq8ar1CZd1-mRDI?zf_enablecamera=true"></iframe>
+      </div>
+    </div>
+  </section>
 
-<section id="process">
-<h2>Process</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Step 1</h3>
-<p>Submit your information documents through the secure portal.</p>
-</div>
-
-<div class="card">
-<h3>Step 2</h3>
-<p>Your information is reviewed carefully to determine the appropriate strategy.</p>
-</div>
-
-<div class="card">
-<h3>Step 3</h3>
-<p>Consulting guidance is provided outlining the next steps for improving your credit profile.</p>
-</div>
-
-</div>
-</section>
-
-<section id="portal" class="portal">
-<h2>Secure Client Portal</h2>
-<p>Submit your information documents privately for review.</p>
-
-<iframe aria-label="Client Information" frameborder="0" allow="camera;" src="https://forms.zohopublic.com/asanienterprisesorganization1/form/ClientInformation/formperma/A4Xku2sRPX9LbrF8PDf9UJC0D7uHCq8ar1CZd1-mRDI?zf_enablecamera=true"></iframe>
-
-<div class="terms">
-<h3>Terms and Conditions</h3>
-<p>By submitting information through this portal you confirm that the information provided is accurate and submitted voluntarily. The services offered by Asani Enterprises consist of credit consulting and credit profile review. Recommendations are based on the information provided by the client.</p>
-
-<p>No specific outcomes can be guaranteed. Credit results vary based on individual circumstances credit bureau reporting and creditor responses.</p>
-
-<p>You authorize Asani Enterprises to review the documentation submitted for the purpose of evaluating your credit profile and determining consulting recommendations.</p>
-
-<p>All information submitted is handled confidentially and used solely for consulting purposes. Information will not be sold shared or distributed to unauthorized third parties.</p>
-
-<p>Clients remain responsible for monitoring credit reports maintaining financial obligations and complying with existing credit agreements.</p>
-
-<p>By submitting your information you acknowledge that you understand and agree to these terms.</p>
-</div>
-
-</section>
-
-<section id="contact" class="contact">
-<h2>Contact</h2>
-<p>Email: info@asanienterprises.com</p>
-</section>
+  <section id="contact">
+    <div class="container contact-wrap">
+      <div>
+        <span class="kicker">Contact</span>
+        <h2>Professional support with a direct line.</h2>
+        <p>Keep communication clear and premium with a clean contact section that supports the rest of the brand.</p>
+        <div class="contact-list">
+          <div class="contact-item">
+            <small>Email</small>
+            <span>info@asanienterprises.com</span>
+          </div>
+          <div class="contact-item">
+            <small>Business</small>
+            <span>Asani Enterprises</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-side">
+        <div>
+          <strong>Credit consulting with presence.</strong>
+          <span>A cleaner and more elevated presentation for a brand that should feel established, private, and intentional.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-© 2026 Asani Enterprises
+  <div class="container footer-line">
+    <span>© 2026 Asani Enterprises</span>
+    <span>Credit Consulting • Strategic Credit Repair</span>
+  </div>
 </footer>
-
 </body>
 </html>
