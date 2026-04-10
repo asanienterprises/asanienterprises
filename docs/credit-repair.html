@@ -46,14 +46,9 @@ nav a:hover{color:var(--gold-dark)}
 .btn:hover{transform:translateY(-1px)}
 .btn-primary{background:var(--text);color:#fff}
 .btn-secondary{background:var(--surface);border:1px solid var(--line);color:var(--text)}
-.hero-visual{position:relative;min-height:520px;border-radius:34px;background:linear-gradient(180deg,#fff,#f8f4ed);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow)}
-.hero-visual::before{content:"";position:absolute;inset:26px 26px auto auto;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(154,119,64,.18),rgba(154,119,64,0));}
-.hero-visual::after{content:"";position:absolute;left:-60px;bottom:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(154,119,64,.12),rgba(154,119,64,0));}
-.visual-stack{position:absolute;inset:0;padding:38px;display:flex;flex-direction:column;justify-content:space-between}
-.visual-logo{width:min(100%,300px);margin:0 auto;padding-top:10px}
-.visual-panel{background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border:1px solid rgba(236,228,216,.95);border-radius:24px;padding:24px}
-.visual-panel strong{display:block;font-size:1.18rem;letter-spacing:-.03em;margin-bottom:8px}
-.visual-panel span{color:var(--muted)}
+.hero-visual{position:relative;min-height:520px;border-radius:34px;background:#faf7f2;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow);padding:28px}
+.credit-images{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;height:100%}
+.credit-images img{width:100%;height:100%;object-fit:contain;background:white;border-radius:18px;padding:16px;border:1px solid var(--line)}
 section{padding:62px 0}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
 .section-head h2{margin:0;font-size:2rem;letter-spacing:-.045em}
@@ -94,24 +89,13 @@ footer{padding:34px 0;border-top:1px solid var(--line);margin-top:8px}
 @media(max-width:980px){
   .hero-grid,.services-grid,.flow-wrap,.portal-grid,.contact-grid{grid-template-columns:1fr}
   .hero h1{max-width:13ch}
-  nav{gap:14px}
-}
-@media(max-width:720px){
-  .nav{padding:14px 0;align-items:flex-start;flex-direction:column}
-  nav{gap:12px}
-  .brand-title{letter-spacing:.14em}
-  .hero{padding-top:48px}
-  .hero-visual{min-height:430px}
-  .visual-stack{padding:24px}
-  .service-card,.flow-intro,.flow-grid,.portal-copy,.contact-box{padding:22px}
-  .portal-frame{height:820px}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="container nav">
-    <a href="#home" class="brand" aria-label="Asani Enterprises home">
+    <a href="#home" class="brand">
       <img src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises logo">
       <span class="brand-copy">
         <span class="brand-title">Asani Enterprises</span>
@@ -130,161 +114,192 @@ footer{padding:34px 0;border-top:1px solid var(--line);margin-top:8px}
 </header>
 
 <main id="home">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="kicker">Personal credit • Credit repair</span>
-        <h1>Clear personal credit solutions with a private client experience.</h1>
-        <p>Asani Enterprises helps clients understand their credit profile, organize supporting documents, and move forward with cleaner personal credit guidance and strategic repair solutions.</p>
-        <div class="hero-actions">
-          <a href="#portal" class="btn btn-primary">Access Client Portal</a>
-          <a href="#services" class="btn btn-secondary">View Services</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="visual-stack">
-          <img class="visual-logo" src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises logo">
-          <div class="visual-panel">
-            <strong>Private. Clean. Organized.</strong>
-            <span>A lighter, more seamless design focused on personal credit consulting, strategic repair support, and a direct submission process.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="kicker">Services</span>
-          <h2>What we provide</h2>
-        </div>
-        <p>Three focused services centered on personal credit improvement.</p>
-      </div>
-      <div class="services-grid">
-        <article class="service-card">
-          <small>01</small>
-          <h3>Personal credit consultation</h3>
-          <p>A review of your profile with guidance focused on structure, reporting accuracy, and stronger overall positioning.</p>
-        </article>
-        <article class="service-card">
-          <small>02</small>
-          <h3>Strategic credit repair</h3>
-          <p>Guidance regarding inaccurate, outdated, or unverifiable reporting and the proper next steps to address those items.</p>
-        </article>
-        <article class="service-card">
-          <small>03</small>
-          <h3>Credit profile solutions</h3>
-          <p>Support focused on charge offs, collections, late payments, inquiries, and overall profile presentation.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+<div class="container hero-grid">
 
-  <section id="process">
-    <div class="container flow-wrap">
-      <div class="flow-intro">
-        <span class="kicker">Process</span>
-        <h2>How it works</h2>
-        <p>The process stays simple so clients know where to begin, what happens next, and how the review moves forward.</p>
-      </div>
-      <div class="flow-grid">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Submit your information</h3>
-          <p>Complete the secure portal with your personal information and supporting documents.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Profile review</h3>
-          <p>Your submission is reviewed to understand the issues, documentation, and overall credit picture.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Recommended next steps</h3>
-          <p>You receive guidance based on the information provided and the issues identified during the review.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div>
+<span class="kicker">Personal credit • Credit repair</span>
+<h1>Clear personal credit solutions with a private client experience.</h1>
+<p>Asani Enterprises helps clients understand their credit profile, organize supporting documents, and move forward with structured credit repair strategies and consulting.</p>
 
-  <section id="portal">
-    <div class="container portal-grid">
-      <div class="portal-copy">
-        <span class="kicker">Secure portal</span>
-        <h2>Private credit file submission</h2>
-        <p>Use the secure portal to submit your information and documents for review.</p>
-        <div class="portal-list">
-          <div>Personal information and documents in one place</div>
-          <div>Organized and direct submission process</div>
-          <div>Accessible on desktop and mobile</div>
-        </div>
-      </div>
-      <iframe aria-label="Client Information" frameborder="0" allow="camera;" class="portal-frame" src="https://forms.zohopublic.com/asanienterprisesorganization1/form/ClientInformation/formperma/A4Xku2sRPX9LbrF8PDf9UJC0D7uHCq8ar1CZd1-mRDI?zf_enablecamera=true"></iframe>
-    </div>
-  </section>
+<div class="hero-actions">
+<a href="#portal" class="btn btn-primary">Access Client Portal</a>
+<a href="#services" class="btn btn-secondary">View Services</a>
+</div>
+</div>
 
-  <section id="faq">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="kicker">FAQ</span>
-          <h2>Frequently asked questions</h2>
-        </div>
-        <p>Five strong questions clients may have before moving forward.</p>
-      </div>
-      <div class="faq-wrap">
-        <details open>
-          <summary>What services does Asani Enterprises provide?</summary>
-          <p>Asani Enterprises provides personal credit consulting, strategic credit repair guidance, and credit profile review services.</p>
-        </details>
-        <details>
-          <summary>How do I get started?</summary>
-          <p>Begin by completing the secure client portal and submitting your information and documents for review.</p>
-        </details>
-        <details>
-          <summary>Is my information private?</summary>
-          <p>Information submitted through the portal is handled confidentially and used only in connection with the services provided.</p>
-        </details>
-        <details>
-          <summary>What does credit repair involve?</summary>
-          <p>Credit repair consulting may involve reviewing reporting accuracy, identifying disputed items, organizing documentation, and recommending appropriate next steps.</p>
-        </details>
-        <details>
-          <summary>Can you guarantee results?</summary>
-          <p>No. Outcomes depend on individual circumstances, supporting documentation, creditor responses, and credit reporting agency procedures.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+<div class="hero-visual">
+<div class="credit-images">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Equifax_logo.svg" alt="Equifax">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Experian_logo.svg" alt="Experian">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/01/TransUnion_Logo.svg" alt="TransUnion">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/United_States_Federal_Trade_Commission_logo.svg" alt="FCRA FTC">
+</div>
+</div>
 
-  <section id="contact">
-    <div class="container">
-      <div class="contact-box">
-        <span class="kicker">Contact</span>
-        <h2>Get in touch</h2>
-        <p>Reach out with questions regarding services, submissions, or next steps.</p>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <small>Email</small>
-            <div>info@asanienterprises.com</div>
-          </div>
-          <div class="contact-item">
-            <small>Business</small>
-            <div>Asani Enterprises</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<div class="section-head">
+<div>
+<span class="kicker">Services</span>
+<h2>What we provide</h2>
+</div>
+<p>Focused services centered on personal credit improvement.</p>
+</div>
+
+<div class="services-grid">
+
+<article class="service-card">
+<small>01</small>
+<h3>Personal credit consultation</h3>
+<p>A review of your credit profile and guidance on improving reporting accuracy and overall credit positioning.</p>
+</article>
+
+<article class="service-card">
+<small>02</small>
+<h3>Strategic credit repair</h3>
+<p>Consulting regarding inaccurate, outdated, or unverifiable items reported by credit bureaus.</p>
+</article>
+
+<article class="service-card">
+<small>03</small>
+<h3>Credit profile solutions</h3>
+<p>Support regarding collections, charge offs, late payments, inquiries, and credit profile structure.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="process">
+<div class="container flow-wrap">
+
+<div class="flow-intro">
+<span class="kicker">Process</span>
+<h2>How it works</h2>
+<p>A simple process designed to keep everything organized and clear.</p>
+</div>
+
+<div class="flow-grid">
+
+<div class="step">
+<div class="step-number">1</div>
+<h3>Submit your information</h3>
+<p>Complete the secure portal and upload supporting documents.</p>
+</div>
+
+<div class="step">
+<div class="step-number">2</div>
+<h3>Profile review</h3>
+<p>Your credit file and documentation are reviewed carefully.</p>
+</div>
+
+<div class="step">
+<div class="step-number">3</div>
+<h3>Recommended next steps</h3>
+<p>You receive guidance and strategy based on your profile.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="portal">
+<div class="container portal-grid">
+
+<div class="portal-copy">
+<span class="kicker">Secure portal</span>
+<h2>Private credit file submission</h2>
+<p>Submit your credit information and documentation through the secure portal.</p>
+
+<div class="portal-list">
+<div>Secure document upload</div>
+<div>Organized credit review process</div>
+<div>Accessible from desktop and mobile</div>
+</div>
+</div>
+
+<iframe aria-label="Client Information" frameborder="0" allow="camera;" class="portal-frame" src="https://forms.zohopublic.com/asanienterprisesorganization1/form/ClientInformation/formperma/A4Xku2sRPX9LbrF8PDf9UJC0D7uHCq8ar1CZd1-mRDI?zf_enablecamera=true"></iframe>
+
+</div>
+</section>
+
+<section id="faq">
+<div class="container">
+<div class="section-head">
+<div>
+<span class="kicker">FAQ</span>
+<h2>Frequently asked questions</h2>
+</div>
+</div>
+
+<div class="faq-wrap">
+
+<details open>
+<summary>What services does Asani Enterprises provide?</summary>
+<p>Personal credit consulting, credit repair strategy, and credit profile review.</p>
+</details>
+
+<details>
+<summary>How do I get started?</summary>
+<p>Complete the secure portal and submit your information for review.</p>
+</details>
+
+<details>
+<summary>Is my information private?</summary>
+<p>All submitted information is handled confidentially.</p>
+</details>
+
+<details>
+<summary>What does credit repair involve?</summary>
+<p>Reviewing inaccurate or outdated credit reporting and determining the appropriate next steps.</p>
+</details>
+
+<details>
+<summary>Can you guarantee results?</summary>
+<p>No. Results depend on documentation and creditor reporting procedures.</p>
+</details>
+
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="contact-box">
+<span class="kicker">Contact</span>
+<h2>Get in touch</h2>
+<p>Reach out with questions regarding services or submissions.</p>
+
+<div class="contact-grid">
+
+<div class="contact-item">
+<small>Email</small>
+<div>info@asanienterprises.com</div>
+</div>
+
+<div class="contact-item">
+<small>Business</small>
+<div>Asani Enterprises</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
 </main>
 
 <footer>
-  <div class="container footer-line">
-    <span>© 2026 Asani Enterprises</span>
-    <span>Personal Credit Consulting • Strategic Credit Repair</span>
-  </div>
+<div class="container footer-line">
+<span>© 2026 Asani Enterprises</span>
+<span>Personal Credit Consulting • Strategic Credit Repair</span>
+</div>
 </footer>
+
 </body>
-</html>
+<
