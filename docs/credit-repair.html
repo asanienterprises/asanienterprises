@@ -7,16 +7,16 @@
 <meta name="description" content="Personal credit consulting and strategic credit repair services provided by Asani Enterprises.">
 <style>
 :root{
-  --bg:#f7f2e9;
+  --bg:#ffffff;
   --surface:#ffffff;
-  --surface-soft:#f4eee4;
+  --surface-soft:#faf7f2;
   --text:#111111;
-  --muted:#6a645c;
-  --line:#e6ded2;
-  --accent:#8a6a2f;
-  --accent-dark:#6f5423;
-  --radius:24px;
-  --shadow:0 18px 40px rgba(17,17,17,.05);
+  --muted:#6a6358;
+  --line:#ece4d8;
+  --gold:#9a7740;
+  --gold-dark:#7c5f32;
+  --radius:28px;
+  --shadow:0 20px 50px rgba(17,17,17,.06);
   --max:1180px;
 }
 *{box-sizing:border-box}
@@ -25,68 +25,87 @@ body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 .container{width:min(var(--max),calc(100% - 40px));margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(247,242,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:14px}
-.brand img{width:48px;height:48px;border-radius:12px;object-fit:cover}
-.brand-copy{display:flex;flex-direction:column;gap:2px}
-.brand-title{font-size:.95rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
-.brand-sub{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand img{width:52px;height:52px;border-radius:14px;object-fit:cover;flex-shrink:0}
+.brand-copy{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-size:.96rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.brand-sub{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 nav a{font-size:.92rem;color:var(--muted)}
-nav a:hover{color:var(--accent-dark)}
+nav a:hover{color:var(--gold-dark)}
 .nav-cta{padding:11px 18px;border-radius:999px;background:var(--text);color:#fff}
-.hero{padding:72px 0 34px}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:32px;align-items:center}
-.kicker{display:inline-block;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.hero h1{margin:0;max-width:10.5ch;font-size:clamp(3rem,6vw,5.2rem);line-height:1.01;letter-spacing:-.055em}
-.hero p{max-width:590px;margin:18px 0 0;color:var(--muted);font-size:1.02rem}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:999px;font-weight:600;transition:.2s ease}
+.hero{padding:74px 0 44px}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:center}
+.kicker{display:inline-block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero h1{margin:0;max-width:10.5ch;font-size:clamp(3rem,6vw,5.4rem);line-height:.98;letter-spacing:-.06em}
+.hero p{max-width:580px;margin:20px 0 0;color:var(--muted);font-size:1.03rem}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:999px;font-weight:600;transition:.2s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn-primary{background:var(--text);color:#fff}
 .btn-secondary{background:var(--surface);border:1px solid var(--line);color:var(--text)}
-.hero-card{background:linear-gradient(180deg,var(--surface),var(--surface-soft));border:1px solid var(--line);border-radius:32px;padding:34px;box-shadow:var(--shadow)}
-.hero-card img{width:min(100%,300px);margin:auto;border-radius:18px}
-.hero-card h2{margin:22px 0 10px;font-size:1.5rem;letter-spacing:-.03em}
-.hero-card p{margin:0;color:var(--muted)}
-section{padding:58px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
-.section-head h2{margin:0;font-size:2rem;letter-spacing:-.04em}
+.hero-visual{position:relative;min-height:520px;border-radius:34px;background:linear-gradient(180deg,#fff,#f8f4ed);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow)}
+.hero-visual::before{content:"";position:absolute;inset:26px 26px auto auto;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(154,119,64,.18),rgba(154,119,64,0));}
+.hero-visual::after{content:"";position:absolute;left:-60px;bottom:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(154,119,64,.12),rgba(154,119,64,0));}
+.visual-stack{position:absolute;inset:0;padding:38px;display:flex;flex-direction:column;justify-content:space-between}
+.visual-logo{width:min(100%,300px);margin:0 auto;padding-top:10px}
+.visual-panel{background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border:1px solid rgba(236,228,216,.95);border-radius:24px;padding:24px}
+.visual-panel strong{display:block;font-size:1.18rem;letter-spacing:-.03em;margin-bottom:8px}
+.visual-panel span{color:var(--muted)}
+section{padding:62px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.section-head h2{margin:0;font-size:2rem;letter-spacing:-.045em}
 .section-head p{margin:0;max-width:520px;color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
-.card small{display:block;margin-bottom:12px;color:var(--accent);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
-.card h3{margin:0 0 10px;font-size:1.18rem;letter-spacing:-.02em}
-.card p{margin:0;color:var(--muted)}
-.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
-.step-number{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--surface-soft);border:1px solid var(--line);font-weight:700;margin-bottom:16px}
-.step h3{margin:0 0 10px;font-size:1.14rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.service-card small{display:block;margin-bottom:12px;color:var(--gold);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+.service-card h3{margin:0 0 10px;font-size:1.2rem;letter-spacing:-.02em}
+.service-card p{margin:0;color:var(--muted)}
+.flow-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:start}
+.flow-intro,.flow-grid,.portal-copy,.contact-box{background:var(--surface);border:1px solid var(--line);border-radius:32px;box-shadow:var(--shadow)}
+.flow-intro{padding:30px}
+.flow-intro h2,.portal-copy h2,.contact-box h2{margin:0 0 12px;font-size:1.9rem;letter-spacing:-.04em}
+.flow-intro p,.portal-copy p,.contact-box p{margin:0;color:var(--muted)}
+.flow-grid{padding:18px;display:grid;gap:14px}
+.step{padding:20px 20px 18px;border-radius:22px;background:var(--surface-soft);border:1px solid var(--line)}
+.step-number{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);font-weight:700;margin-bottom:14px}
+.step h3{margin:0 0 8px;font-size:1.08rem}
 .step p{margin:0;color:var(--muted)}
-.portal-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:28px;align-items:start}
-.portal-copy{background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:30px;box-shadow:var(--shadow)}
-.portal-copy h2{margin:0 0 12px;font-size:1.8rem;letter-spacing:-.04em}
-.portal-copy p{margin:0;color:var(--muted)}
+.portal-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:28px;align-items:start}
+.portal-copy{padding:30px}
 .portal-list{display:grid;gap:12px;margin-top:18px}
 .portal-list div{padding:14px 16px;border-radius:18px;background:var(--surface-soft);border:1px solid var(--line)}
-.portal-frame{width:100%;height:760px;border:0;border-radius:24px;box-shadow:var(--shadow);background:var(--surface)}
+.portal-frame{width:100%;height:760px;border:0;border-radius:28px;box-shadow:var(--shadow);background:var(--surface)}
 .faq-wrap{display:grid;gap:14px;max-width:920px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:0 22px;box-shadow:var(--shadow)}
 summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600}
 summary::-webkit-details-marker{display:none}
-summary::after{content:'+';font-size:1.2rem;color:var(--accent);flex-shrink:0}
+summary::after{content:'+';font-size:1.2rem;color:var(--gold);flex-shrink:0}
 details[open] summary::after{content:'−'}
 details p{margin:0 0 20px;color:var(--muted)}
-.contact-box{background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:30px;box-shadow:var(--shadow)}
-.contact-box h2{margin:0 0 10px;font-size:1.8rem;letter-spacing:-.04em}
-.contact-box p{margin:0;color:var(--muted)}
+.contact-box{padding:30px}
 .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
-.contact-item{padding:18px;border-radius:18px;background:var(--surface-soft);border:1px solid var(--line)}
-.contact-item small{display:block;margin-bottom:6px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-footer{padding:34px 0;border-top:1px solid var(--line);margin-top:10px}
+.contact-item{padding:18px;border-radius:20px;background:var(--surface-soft);border:1px solid var(--line)}
+.contact-item small{display:block;margin-bottom:6px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+footer{padding:34px 0;border-top:1px solid var(--line);margin-top:8px}
 .footer-line{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
-@media(max-width:980px){.hero-grid,.cards,.process-grid,.portal-grid,.contact-grid{grid-template-columns:1fr}.hero h1{max-width:13ch}nav{gap:14px}}
+@media(max-width:980px){
+  .hero-grid,.services-grid,.flow-wrap,.portal-grid,.contact-grid{grid-template-columns:1fr}
+  .hero h1{max-width:13ch}
+  nav{gap:14px}
+}
+@media(max-width:720px){
+  .nav{padding:14px 0;align-items:flex-start;flex-direction:column}
+  nav{gap:12px}
+  .brand-title{letter-spacing:.14em}
+  .hero{padding-top:48px}
+  .hero-visual{min-height:430px}
+  .visual-stack{padding:24px}
+  .service-card,.flow-intro,.flow-grid,.portal-copy,.contact-box{padding:22px}
+  .portal-frame{height:820px}
+}
 </style>
 </head>
 <body>
@@ -115,17 +134,21 @@ footer{padding:34px 0;border-top:1px solid var(--line);margin-top:10px}
     <div class="container hero-grid">
       <div>
         <span class="kicker">Personal credit • Credit repair</span>
-        <h1>Clean personal credit solutions with a private process.</h1>
-        <p>Asani Enterprises helps clients understand their credit profile, organize supporting documents, and move forward with clear personal credit guidance and strategic credit repair solutions.</p>
+        <h1>Clear personal credit solutions with a private client experience.</h1>
+        <p>Asani Enterprises helps clients understand their credit profile, organize supporting documents, and move forward with cleaner personal credit guidance and strategic repair solutions.</p>
         <div class="hero-actions">
           <a href="#portal" class="btn btn-primary">Access Client Portal</a>
           <a href="#services" class="btn btn-secondary">View Services</a>
         </div>
       </div>
-      <div class="hero-card">
-        <img src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises logo">
-        <h2>Asani Enterprises</h2>
-        <p>Personal credit consulting and strategic credit repair solutions presented with a lighter, cleaner, more seamless layout.</p>
+      <div class="hero-visual">
+        <div class="visual-stack">
+          <img class="visual-logo" src="https://raw.githubusercontent.com/asanienterprises/asanienterprises/main/docs/assets/logo-email.png" alt="Asani Enterprises logo">
+          <div class="visual-panel">
+            <strong>Private. Clean. Organized.</strong>
+            <span>A lighter, more seamless design focused on personal credit consulting, strategic repair support, and a direct submission process.</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -139,18 +162,18 @@ footer{padding:34px 0;border-top:1px solid var(--line);margin-top:10px}
         </div>
         <p>Three focused services centered on personal credit improvement.</p>
       </div>
-      <div class="cards">
-        <article class="card">
+      <div class="services-grid">
+        <article class="service-card">
           <small>01</small>
           <h3>Personal credit consultation</h3>
           <p>A review of your profile with guidance focused on structure, reporting accuracy, and stronger overall positioning.</p>
         </article>
-        <article class="card">
+        <article class="service-card">
           <small>02</small>
           <h3>Strategic credit repair</h3>
           <p>Guidance regarding inaccurate, outdated, or unverifiable reporting and the proper next steps to address those items.</p>
         </article>
-        <article class="card">
+        <article class="service-card">
           <small>03</small>
           <h3>Credit profile solutions</h3>
           <p>Support focused on charge offs, collections, late payments, inquiries, and overall profile presentation.</p>
@@ -160,15 +183,13 @@ footer{padding:34px 0;border-top:1px solid var(--line);margin-top:10px}
   </section>
 
   <section id="process">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="kicker">Process</span>
-          <h2>How it works</h2>
-        </div>
-        <p>A simple process designed to keep the experience clear and organized.</p>
+    <div class="container flow-wrap">
+      <div class="flow-intro">
+        <span class="kicker">Process</span>
+        <h2>How it works</h2>
+        <p>The process stays simple so clients know where to begin, what happens next, and how the review moves forward.</p>
       </div>
-      <div class="process-grid">
+      <div class="flow-grid">
         <div class="step">
           <div class="step-number">1</div>
           <h3>Submit your information</h3>
@@ -211,7 +232,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);margin-top:10px}
           <span class="kicker">FAQ</span>
           <h2>Frequently asked questions</h2>
         </div>
-        <p>Five common questions clients may have before moving forward.</p>
+        <p>Five strong questions clients may have before moving forward.</p>
       </div>
       <div class="faq-wrap">
         <details open>
