@@ -9,12 +9,12 @@
 :root{
   --bg:#f7f2e9;
   --surface:#ffffff;
-  --surface-2:#f2ece1;
+  --surface-soft:#f2ece1;
   --text:#121212;
-  --muted:#5f5a52;
+  --muted:#666056;
   --line:#e4dccf;
   --accent:#8c6b33;
-  --accent-2:#6f5423;
+  --accent-dark:#6f5423;
   --radius:22px;
   --shadow:0 16px 40px rgba(0,0,0,.05);
 }
@@ -24,29 +24,31 @@ body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 .container{width:min(1180px,calc(100% - 40px));margin:auto}
-header{position:sticky;top:0;background:rgba(247,242,233,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:50}
-.nav{display:flex;justify-content:space-between;align-items:center;min-height:84px;gap:20px}
-.brand{display:flex;flex-direction:column;gap:3px}
-.brand-title{font-size:1rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+header{position:sticky;top:0;background:rgba(247,242,233,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:50}
+.nav{display:flex;justify-content:space-between;align-items:center;min-height:86px;gap:20px}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{width:54px;height:54px;border-radius:10px;object-fit:cover;box-shadow:var(--shadow)}
+.brand-copy{display:flex;flex-direction:column;gap:3px}
+.brand-title{font-size:.98rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
 .brand-sub{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 nav a{font-size:.92rem;color:var(--muted)}
-nav a:hover{color:var(--accent-2)}
-.top-cta{padding:11px 18px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
-.hero{padding:70px 0 40px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+nav a:hover{color:var(--accent-dark)}
+.top-cta{padding:11px 18px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text)}
+.hero{padding:76px 0 42px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
 .kicker{display:inline-block;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.hero h1{font-size:clamp(2.9rem,6vw,5.1rem);line-height:1.02;letter-spacing:-.05em;max-width:11ch;margin:0}
-.hero p{max-width:620px;margin:18px 0 0;color:var(--muted);font-size:1.02rem}
+.hero h1{font-size:clamp(3rem,6vw,5.15rem);line-height:1.02;letter-spacing:-.055em;max-width:10.8ch;margin:0}
+.hero p{max-width:610px;margin:18px 0 0;color:var(--muted);font-size:1.02rem}
 .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:999px;font-weight:600;transition:.2s ease}
 .btn-primary{background:var(--text);color:#fff}
 .btn-secondary{background:var(--surface);border:1px solid var(--line);color:var(--text)}
 .btn:hover{transform:translateY(-1px)}
-.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:0;overflow:hidden;box-shadow:var(--shadow)}
-.hero-image{height:460px;background:linear-gradient(rgba(18,18,18,.10),rgba(18,18,18,.10)),url('https://images.unsplash.com/photo-1554224154-26032fced8bd?auto=format&fit=crop&w=1200&q=80');background-size:cover;background-position:center}
-.hero-copy{padding:24px 26px;background:var(--surface)}
-.hero-copy strong{display:block;font-size:1rem;margin-bottom:8px;color:var(--accent-2)}
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:var(--shadow)}
+.hero-logo{display:flex;justify-content:center;align-items:center;padding:20px 0 6px}
+.hero-logo img{width:min(100%,320px);border-radius:18px;box-shadow:var(--shadow)}
+.hero-copy strong{display:block;font-size:1rem;margin:14px 0 8px;color:var(--accent-dark)}
 .hero-copy span{color:var(--muted)}
 section{padding:64px 0}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
@@ -62,7 +64,7 @@ section{padding:64px 0}
 .panel h2{margin:0 0 12px;font-size:1.8rem;letter-spacing:-.04em}
 .panel p{margin:0;color:var(--muted)}
 .points{display:grid;gap:12px;margin-top:18px}
-.points div{padding:14px 16px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line);color:var(--text)}
+.points div{padding:14px 16px;border-radius:18px;background:var(--surface-soft);border:1px solid var(--line);color:var(--text)}
 .portal-frame{width:100%;height:760px;border:0;border-radius:22px;box-shadow:var(--shadow);background:var(--surface)}
 .faq{display:grid;gap:14px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:0 22px;box-shadow:var(--shadow)}
@@ -75,19 +77,22 @@ details p{margin:0 0 20px;color:var(--muted)}
 .contact-box h2{margin:0 0 12px;font-size:1.8rem;letter-spacing:-.04em}
 .contact-box p{margin:0;color:var(--muted)}
 .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
-.contact-item{padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+.contact-item{padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--surface-soft)}
 .contact-item small{display:block;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
 footer{padding:36px 0;border-top:1px solid var(--line);margin-top:18px}
 .footer-line{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
-@media(max-width:980px){.hero-grid,.split,.cards,.contact-grid{grid-template-columns:1fr}.hero h1{max-width:13ch}}
+@media(max-width:980px){.hero-grid,.split,.cards,.contact-grid{grid-template-columns:1fr}.hero h1{max-width:13ch}nav{gap:14px}.brand-title{letter-spacing:.16em}}
 </style>
 </head>
 <body>
 <header>
   <div class="container nav">
     <a href="#home" class="brand" aria-label="Asani Enterprises home">
-      <span class="brand-title">Asani Enterprises</span>
-      <span class="brand-sub">Personal Credit Consulting</span>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAIAAADbcAZoAAEAAElEQVR4nOz9ebBd5X3fif5rr7X3ve7poUggYIfQhMihhBBIoNiWZJONk3kha81OZi8z08xMcpI4Jzk5DzzJ58wMmU5mPpSp7HjYOWSHiWXHtmSVAWHLsoEka9myBVEkA5BAmhBC6G2f9r3W3mt9+58/91prrd57C0QIA5rfo9f3r+v3+v31WnuttfcP/3xfr6Ft27YtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALGvHb8vAABbK4Tdln8HXd+q2fN3AgDQsQ3v6WtWw4S0DRsA/2fL8g8POfWQQQJYIYPxB6D9/5sOAABQejw2MWeNpgYB2+M08WqHn7ghz4fg7wAAbEkG1atRdQFuYlEL+Oe0jf+vAgAA5aH0JGVhRvoLwPsyiB6O1rTVlNOZcJquzjgEu0bRnfVMKAAAgF0sQAAAnSq2VY0+lsz0nzqNkW6CAIBfZu5vOQAAQGmopufdSIy8K81Ji8+0PgDA/qkszEh+bhP0y3JOG1H79xwAAKAMy5Rf1evrQ9Pqk0lGdQM6NVI5mBCMAwCwA2qWtfwsDRsAAGC2f9UBAMD+K+WnKQf9k27P7eK8E7kAAACMp0fXG0qL1sHjxPRJ0g4AAGzv6V8BAAAAAPx3e3c9AAAAANgDwQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGxJtP04t7d2zeY3AAAAANj/2bJ5HAAAgFQkRkT1z4zGm9q9rYbOqK7L6z1tAAAAgKQ0Go2mZ+q5xHUnAQAA0KMwsb0eAAAAgCTrQ2q+5v5uM7+4AQAAwK4sGg0AAABAu7v7IwAAAJJ4Wm2mAQAA4Ld+5q8AAABQx2Qy+YtP9m4AAABgZwQh2wEAAED7+2/8AgAAUNPM9A8AAADQ0qvV2mQy+X9//1sAAAB4lQhCAAAA0GQy+frrr/8bAAAAgB3x9ttvAwAA0N7eHq2trf8NAACA3fP6668DAADQ1dUV5XK5/zcAAAB2xJtvvgkAAED7+3vU1ta2/gcAAMDu2L59OwAAAOjp6Ylyudw/GwAAALtjx44dAAAAtLe3R7lc7j8bAAAAm2P79u0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAACbY8eOHQAAALS0tES5XO4/GwAAAJtjx44dAAAAtLS0RLlc7j8bAAAAm2PHjh0AAAC0tLREuVzuPxsAAADb7f8BZYPdX0hXgBIAAAAASUVORK5CYII=" alt="Asani Enterprises logo">
+      <span class="brand-copy">
+        <span class="brand-title">Asani Enterprises</span>
+        <span class="brand-sub">Personal Credit Consulting</span>
+      </span>
     </a>
     <nav>
       <a href="#services">Services</a>
@@ -105,18 +110,20 @@ footer{padding:36px 0;border-top:1px solid var(--line);margin-top:18px}
     <div class="container hero-grid">
       <div>
         <span class="kicker">Personal credit • Credit repair</span>
-        <h1>Private personal credit guidance with a clear process.</h1>
-        <p>Asani Enterprises provides personal credit consulting and strategic credit repair services through a direct, polished client experience built around clarity, organization, and next steps.</p>
+        <h1>Personal credit guidance with a clear and private process.</h1>
+        <p>Asani Enterprises provides personal credit consulting and strategic credit repair services through a polished client experience built around clarity, organization, and next steps.</p>
         <div class="actions">
           <a href="#portal" class="btn btn-primary">Access Client Portal</a>
           <a href="#services" class="btn btn-secondary">View Services</a>
         </div>
       </div>
       <div class="hero-card">
-        <div class="hero-image"></div>
+        <div class="hero-logo">
+          <img src="data:image/png;base64,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" alt="Asani Enterprises logo">
+        </div>
         <div class="hero-copy">
           <strong>Asani Enterprises</strong>
-          <span>Personal credit consulting and strategic credit repair with a clean, structured presentation modeled on the existing Asani site theme.</span>
+          <span>Personal credit consulting and strategic credit repair solutions with a clean, seamless presentation.</span>
         </div>
       </div>
     </div>
@@ -129,7 +136,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);margin-top:18px}
           <span class="kicker">Services</span>
           <h2>What we provide</h2>
         </div>
-        <p>Focused personal credit services presented directly without unnecessary wording.</p>
+        <p>Focused personal credit services presented directly.</p>
       </div>
       <div class="cards">
         <article class="card">
